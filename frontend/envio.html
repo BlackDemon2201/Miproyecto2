@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Envíos y Entregas - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+  <style>
+
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background-color: white;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+    }
+
+    h1 {
+      color: #1f2937;
+      text-align: center;
+      margin-bottom: 1.5rem;
+    }
+
+    h2 {
+      margin-top: 2rem;
+      color: #2563eb;
+    }
+
+    p {
+      line-height: 1.7;
+      margin-bottom: 1rem;
+    }
+
+    ul {
+      padding-left: 1.2rem;
+      margin-bottom: 1rem;
+    }
+
+    ul li {
+      margin-bottom: 0.5rem;
+    }
+
+    .highlight {
+      background-color: #d1fae5;
+      padding: 15px;
+      border-left: 6px solid #10b981;
+      margin: 1.5rem 0;
+      border-radius: 6px;
+      font-weight: bold;
+      color: #065f46;
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 1rem;
+    }
+
+    table, th, td {
+      border: 1px solid #ccc;
+    }
+
+    th, td {
+      padding: 10px;
+      text-align: left;
+    }
+
+    th {
+      background-color: #f3f4f6;
+    }
+
+    .faq-item {
+      margin: 1rem 0;
+    }
+
+    .faq-question {
+      background-color: #f3f4f6;
+      padding: 10px 15px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-weight: bold;
+      transition: background-color 0.3s ease;
+    }
+
+    .faq-question:hover {
+      background-color: #e5e7eb;
+    }
+
+    .faq-answer {
+      display: none;
+      padding: 10px 15px;
+      background-color: #f9fafb;
+      border-left: 4px solid #38bdf8;
+      border-radius: 0 0 6px 6px;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        padding: 20px;
+      }
+
+      h1 {
+        font-size: 1.5rem;
+      }
+
+      h2 {
+        font-size: 1.2rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+    <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- envio y entrega -->
+
+  <div class="container">
+    <h1>Política de Envíos y Entregas</h1>
+
+    <p>En <strong>TechNova Perú</strong> trabajamos para que recibas tus productos de forma rápida, segura y al mejor costo. Ofrecemos varias modalidades de entrega para Lima y todas las provincias del Perú.</p>
+
+    <h2>Modalidades de Envío</h2>
+    <ul>
+      <li><strong>Recojo en tienda:</strong> Disponible en nuestra sede principal (San Isidro, Lima). Tiempo de preparación: 24h hábiles.</li>
+      <li><strong>Delivery en Lima Metropolitana:</strong> Servicio directo a tu domicilio. 24 a 48h hábiles.</li>
+      <li><strong>Envío Nacional:</strong> A través de couriers confiables como Olva Courier o Shalom. Tiempo estimado: 2 a 5 días hábiles.</li>
+    </ul>
+
+    <h2>Tarifas de Envío</h2>
+    <table>
+      <thead>
+        <tr>
+          <th>Zona</th>
+          <th>Tipo de Envío</th>
+          <th>Costo Estimado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>Lima Metropolitana</td>
+          <td>Delivery rápido</td>
+          <td>S/ 10.00 - S/ 15.00</td>
+        </tr>
+        <tr>
+          <td>Provincias</td>
+          <td>Envío estándar</td>
+          <td>S/ 15.00 - S/ 30.00</td>
+        </tr>
+        <tr>
+          <td>Recojo en tienda</td>
+          <td>Presencial</td>
+          <td>Gratis</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="highlight">
+      🎉 ¡Aprovecha! Todos los envíos son <strong>GRATUITOS en cualquier modalidad y ciudad</strong> por compras mayores a <strong>S/ 500</strong>.
+    </div>
+
+    <h2>Preguntas Frecuentes</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">¿El envío gratuito aplica en todo el Perú?</div>
+      <div class="faq-answer">Sí. El envío gratuito se aplica para cualquier destino dentro del territorio peruano, ya sea Lima o provincias, si tu compra supera los S/ 500.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Cuánto demora la entrega en provincias?</div>
+      <div class="faq-answer">Entre 2 y 5 días hábiles, dependiendo de tu ubicación y el courier asignado.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Hay seguimiento del envío?</div>
+      <div class="faq-answer">Sí. Te proporcionamos un código de seguimiento del courier para que puedas monitorear tu paquete en todo momento.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Qué pasa si no hay nadie en casa al momento del delivery?</div>
+      <div class="faq-answer">El courier intentará una segunda entrega. En caso no haya respuesta, deberás recoger el paquete en la agencia más cercana.</div>
+    </div>
+
+    <h2>¿Necesitas ayuda?</h2>
+    <p>Contáctanos al WhatsApp <strong>+51 987 654 321</strong> o envíanos un correo a <strong>contacto@technovaperu.com</strong>. Estaremos encantados de ayudarte.</p>
+  </div>
+
+  <script>
+    const questions = document.querySelectorAll('.faq-question');
+    questions.forEach(q => {
+      q.addEventListener('click', () => {
+        const answer = q.nextElementSibling;
+        const isVisible = answer.style.display === 'block';
+        document.querySelectorAll('.faq-answer').forEach(a => a.style.display = 'none');
+        answer.style.display = isVisible ? 'none' : 'block';
+      });
+    });
+  </script>
+</body>
+</html>

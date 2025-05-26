@@ -1,0 +1,440 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>TechNova Store</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+</head>
+<body>
+
+    <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- Video -->
+
+  <section class="video-container">
+  <video autoplay muted loop playsinline>
+    <source src="videos/fondo.mp4" type="video/mp4">
+    Tu navegador no soporta la reproducción de video.
+  </video>
+</section>
+
+<!-- Contenido sobre el video -->
+    <div class="hero-content">
+      <h1>TECHNOVA<br> PERÚ</h1>
+      <p>Innovación tecnológica para el futuro.</p>
+      <div class="buttons">
+        <a href="nosotros.html" class="btn">¿QUIÉNES SOMOS?</a>
+        <a href="contacto.html" class="btn btn-secondary">CONTÁCTENOS</a>
+      </div>
+    </div>
+
+  <!-- Servicios Destacados -->
+
+<h2 class="section-title">Servicios Destacados</h2>
+    <section class="features">
+  <div class="feature">
+    <i class="fas fa-laptop-code"></i>
+    <h3>Venta de Equipos</h3>
+    <p>Computadoras, laptops, y accesorios de alto rendimiento.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-tools"></i>
+    <h3>Soporte Técnico</h3>
+    <p>Diagnóstico y reparación rápida de tus dispositivos.</p>
+  </div>
+  <div class="feature">
+    <i class="fas fa-shield-alt"></i>
+    <h3>Garantía & Seguridad</h3>
+    <p>Todos nuestros productos están respaldados por garantía.</p>
+  </div>
+</section>
+
+<!-- Testimonios -->
+
+<section class="testimonials">
+  <h2>Lo Que Dicen Nuestros Clientes</h2>
+  <div class="testimonial-container">
+
+    <div class="testimonial-card">
+      <img src="https://i.pravatar.cc/100?img=1" alt="Ana Rodríguez">
+      <h3>Ana Rodríguez</h3>
+      <div class="stars">★★★★★</div>
+      <p>"Excelente atención y productos de calidad. El personal es muy amable y siempre dispuesto a ayudar."</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="https://i.pravatar.cc/100?img=2" alt="Luis Gamarra">
+      <h3>Luis Gamarra</h3>
+      <div class="stars">★★★★☆</div>
+      <p>"Compré una laptop gamer y me ofrecieron instalación gratuita y garantía extendida. Muy satisfecho."</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="https://i.pravatar.cc/100?img=3" alt="Valeria Ponce">
+      <h3>Valeria Ponce</h3>
+      <div class="stars">★★★★★</div>
+      <p>"Fui a la tienda física y me encantó el ambiente. Muy moderno, limpio y con asesores profesionales."</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="https://i.pravatar.cc/100?img=4" alt="Jorge Torres">
+      <h3>Jorge Torres</h3>
+      <div class="stars">★★★★★</div>
+      <p>"Llevé mi PC a soporte técnico y en menos de 24h la tenía lista. ¡Servicio top!"</p>
+    </div>
+
+    <div class="testimonial-card">
+      <img src="https://i.pravatar.cc/100?img=5" alt="María Elena Ruiz">
+      <h3>María Elena Ruiz</h3>
+      <div class="stars">★★★★☆</div>
+      <p>"Ofrecen una variedad impresionante de productos tecnológicos. Recomiendo visitar la tienda."</p>
+    </div>
+
+  </div>
+</section>
+
+<!-- Categorías -->
+
+<h2 class="categories-title">Categorías</h2>
+
+  <div class="categories-container">
+    <!-- Card 1 -->
+    <a href="laptops.html" class="category-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Laptops</p>
+        </div>
+        <div class="card-back">
+          <img src="../frontend/Imagenes/productos/1.png" alt="Laptops">
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 2 -->
+    <a href="pcdeescritorio.html" class="category-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>PC Escritorio</p>
+        </div>
+        <div class="card-back">
+          <img src="../frontend/Imagenes/productos/4.png" alt="PC Escritorio">
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 3 -->
+    <a href="componentes.html" class="category-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Componentes</p>
+        </div>
+        <div class="card-back">
+          <img src="../frontend/Imagenes/productos/3.png" alt="Componentes">
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 4 -->
+    <a href="Celulares.html" class="category-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Celulares</p>
+        </div>
+        <div class="card-back">
+          <img src="Imagenes/productos/2.png" alt="Celulares">
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 5 -->
+    <a href="perifericos.html" class="category-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Periféricos</p>
+        </div>
+        <div class="card-back">
+          <img src="Imagenes/8.jpg" alt="Periféricos">
+        </div>
+      </div>
+    </a>
+
+    <!-- Card 6 -->
+    <a href="accesorios.html" class="category-card">
+      <div class="card-inner">
+        <div class="card-front">
+          <p>Accesorios</p>
+        </div>
+        <div class="card-back">
+          <img src="Imagenes/Diseño sin título.png" alt="Accesorios">
+        </div>
+      </div>
+    </a>
+  </div>
+
+    <!-- Promociones en Tienda Fisica -->
+   <section class="store-promos">
+  <div class="promo-header">
+    <h2>🎉 Promociones Exclusivas en Tienda Física</h2>
+    <p>¡Acércate a nuestra tienda y aprovecha ofertas que no encontrarás en línea!</p>
+  </div>
+
+  <div class="promo-grid">
+    <!-- Tarjeta 1 -->
+    <div class="promo-card-3d">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="Imagenes/laptopfisica.jpg" alt="Promo Laptops" />
+        </div>
+        <div class="card-back">
+          <h3>💻 20% OFF en Laptops</h3>
+          <p>Promoción válida hasta agotar stock en modelos seleccionados.</p>
+          <span class="promo-badge">Solo en tienda</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 2 -->
+    <div class="promo-card-3d">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="Imagenes/pcgamer.jpg" alt="Promo Accesorios" />
+        </div>
+        <div class="card-back">
+          <h3>🎁 Accesorios de regalo</h3>
+          <p>Compra una PC Gamer y llévate un pack de mouse + teclado sin costo.</p>
+          <span class="promo-badge badge-edicion">Edición limitada</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Tarjeta 3 -->
+    <div class="promo-card-3d">
+      <div class="card-inner">
+        <div class="card-front">
+          <img src="Imagenes/serviciotecnico.jpg" alt="Diagnóstico gratuito" />
+        </div>
+        <div class="card-back">
+          <h3>🔧 Diagnóstico sin costo</h3>
+          <p>Ven con tu equipo a revisar y te asesoramos gratuitamente.</p>
+          <span class="promo-badge badge-exclusivo">Solo clientes presenciales</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- Citas Personalizadas -->
+ <section class="appointment-section">
+  <div class="appointment-container">
+    <!-- Formulario -->
+    <div class="appointment-form-container">
+      <h2>Solicita una Cita Personalizada</h2>
+      <p>
+        Agenda una visita a nuestra tienda física y recibe atención exclusiva de nuestro equipo.
+      </p>
+      <form class="appointment-form">
+        <div class="form-group">
+          <label for="name">Nombre completo</label>
+          <input type="text" id="name" placeholder="Ingresa tu nombre" required />
+        </div>
+        <div class="form-group">
+          <label for="email">Correo electrónico</label>
+          <input type="email" id="email" placeholder="ejemplo@correo.com" required />
+        </div>
+        <div class="form-group">
+          <label for="date">Fecha de la cita</label>
+          <input type="date" id="date" required />
+        </div>
+        <div class="form-group">
+          <label for="message">Motivo o necesidad</label>
+          <textarea id="message" rows="3" placeholder="Cuéntanos cómo podemos ayudarte..."></textarea>
+        </div>
+        <button type="submit">Agendar Cita</button>
+      </form>
+    </div>
+
+    <!-- Imagen -->
+    <div class="appointment-image">
+      <img src="Imagenes/atencionalcliente.jpg" alt="Atención en tienda TechNova" />
+    </div>
+  </div>
+</section>
+
+
+
+    <!-- Metodos de pago -->
+
+    <section class="metodos-pago">
+        <div class="contenedor-pago">
+          <h2>Métodos de Pago</h2>
+          <p>Elige el método que mejor se adapte a ti. En TechNova Store te brindamos comodidad, seguridad y múltiples opciones.</p>
+          
+          <div class="tarjetas-pago">
+            <!-- Tarjeta 1 -->
+            <div class="tarjeta zoom">
+              <img src="Imagenes/metodospago/metodo1.png" alt="Tarjeta de Crédito">
+              <h3>Tarjeta de Crédito</h3>
+              <p>Pagos seguros y rápidos con tu tarjeta de crédito. Aceptamos Visa, Mastercard, Amex y más.</p>
+            </div>
+      
+            <!-- Tarjeta 2 -->
+            <div class="tarjeta zoom">
+              <img src="Imagenes/metodospago/metodo2.png" alt="Tarjeta de Débito">
+              <h3>Tarjeta de Débito</h3>
+              <p>Realiza pagos directamente desde tu cuenta bancaria de forma segura.</p>
+            </div>
+      
+            <!-- Tarjeta 3 -->
+            <div class="tarjeta zoom">
+              <img src="Imagenes/metodospago/metodo3.png" alt="Pago en Efectivo">
+              <h3>Pago en Efectivo</h3>
+              <p>Deposita en bancos autorizados o realiza transferencias usando banca por internet.</p>
+            </div>
+      
+            <!-- Tarjeta 4 -->
+            <div class="tarjeta zoom">
+              <img src="Imagenes/metodospago/metodo4.png" alt="Billeteras Digitales">
+              <h3>Billeteras Digitales</h3>
+              <p>Usa Yape, Plin o Agora para pagar desde tu celular escaneando un código QR.</p>
+            </div>
+      
+            <!-- Tarjeta 5 -->
+            <div class="tarjeta zoom">
+              <img src="Imagenes/metodospago/metodo5.png" alt="Cuotéalo">
+              <h3>Cuotéalo (BCP)</h3>
+              <p>Financia tu compra en cuotas sin tarjeta de crédito. Disponible para compras entre S/100 y S/7,000.</p>
+            </div>
+          </div>
+        </div>
+      </section>
+  
+    <!-- Pie de Página -->
+<footer class="footer-formal">
+  <div class="footer-wrapper">
+
+    <!-- Marca -->
+    <div class="footer-section brand">
+      <h4>TechNova Perú</h4>
+      <p>Soluciones tecnológicas con confianza y calidad.</p>
+      <p><strong>RUC:</strong> 20481234567</p>
+      <div class="footer-icons">
+        <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+        <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://wa.me/51917802675" target="_blank" aria-label="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+
+    <!-- Enlaces -->
+    <div class="footer-section links">
+      <h4>Enlaces Rápidos</h4>
+      <ul>
+        <li><a href="#"><i class="fas fa-home"></i> Inicio</a></li>
+        <li><a href="#"><i class="fas fa-box-open"></i> Productos</a></li>
+        <li><a href="#"><i class="fas fa-envelope"></i> Contáctanos</a></li>
+        <li><a href="#"><i class="fas fa-tools"></i> Soporte</a></li>
+        <li><a href="#"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+      </ul>
+    </div>
+
+    <!-- Horarios -->
+    <div class="footer-section hours">
+      <h4>Horario de Atención</h4>
+      <p><i class="fas fa-clock"></i> Lunes a Viernes: 9am – 6pm</p>
+      <p><i class="fas fa-clock"></i> Sábados: 9am – 1pm</p>
+      <p><i class="fas fa-clock"></i> Domingos: Cerrado</p>
+    </div>
+
+    <!-- Contacto + Ubicación -->
+    <div class="footer-section contact-location">
+      <h4>Contáctanos & Ubicación</h4>
+      <p><i class="fas fa-phone-alt"></i> +51 987 654 321</p>
+      <p><i class="fas fa-envelope"></i> contacto@technovaperu.com</p>
+
+      <div class="location-box">
+        <p><i class="fas fa-map-marker-alt"></i> Jr. Raymondi 456, Pucallpa, Perú</p>
+        <iframe
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3901.108761283666!2d-74.58073968479404!3d-8.379786393494318!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x91b1c0e8b3a3c0d3%3A0x9e06d146b3f5f7c!2sJr.%20Raymondi%20456%2C%20Pucallpa%2025001!5e0!3m2!1ses-419!2spe!4v1689222333901!5m2!1ses-419!2spe"
+          loading="lazy"
+          allowfullscreen=""
+          referrerpolicy="no-referrer-when-downgrade"
+          title="Ubicación TechNova Store Pucallpa"
+        ></iframe>
+      </div>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 TechNova Store. Todos los derechos reservados.</p>
+  </div>
+</footer>
+
+    <script src="../index.js"></script>
+</body>
+</html>

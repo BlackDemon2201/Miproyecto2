@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Historial de Compras - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css"/>
+  <style>
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    }
+    h2 {
+      text-align: center;
+      margin-bottom: 30px;
+    }
+    label {
+      font-weight: bold;
+      margin-right: 10px;
+    }
+    select {
+      padding: 6px 10px;
+      font-size: 1rem;
+      border-radius: 4px;
+      border: 1px solid #ccc;
+      margin-bottom: 20px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      font-size: 0.95rem;
+    }
+    thead {
+      background: #1f2937;
+      color: white;
+    }
+    th, td {
+      padding: 12px 15px;
+      border: 1px solid #ddd;
+      text-align: left;
+    }
+    tbody tr:nth-child(even) {
+      background: #f9fafb;
+    }
+    tbody tr:hover {
+      background: #e0f2fe;
+    }
+    .status {
+      padding: 4px 10px;
+      border-radius: 12px;
+      font-weight: bold;
+      font-size: 0.85rem;
+      color: white;
+      display: inline-block;
+    }
+    .status.pendiente {
+      background-color: #fbbf24; /* amarillo */
+    }
+    .status.enviado {
+      background-color: #3b82f6; /* azul */
+    }
+    .status.entregado {
+      background-color: #10b981; /* verde */
+    }
+    .status.cancelado {
+      background-color: #ef4444; /* rojo */
+    }
+  </style>
+</head>
+<body>
+
+    <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+  <!-- historial -->
+
+  <div class="container">
+    <h2>Historial de Compras</h2>
+
+    <label for="filterStatus">Filtrar por estado:</label>
+    <select id="filterStatus">
+      <option value="todos">Todos</option>
+      <option value="pendiente">Pendiente</option>
+      <option value="enviado">Enviado</option>
+      <option value="entregado">Entregado</option>
+      <option value="cancelado">Cancelado</option>
+    </select>
+
+    <table>
+      <thead>
+        <tr>
+          <th>ID Pedido</th>
+          <th>Fecha</th>
+          <th>Producto</th>
+          <th>Cantidad</th>
+          <th>Total</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody id="ordersTable">
+        <tr data-status="pendiente">
+          <td>#1001</td>
+          <td>2025-05-01</td>
+          <td>Laptop Gamer XYZ</td>
+          <td>1</td>
+          <td>S/ 3,500.00</td>
+          <td><span class="status pendiente">Pendiente</span></td>
+        </tr>
+        <tr data-status="enviado">
+          <td>#1000</td>
+          <td>2025-04-28</td>
+          <td>Teclado Mecánico</td>
+          <td>1</td>
+          <td>S/ 350.00</td>
+          <td><span class="status enviado">Enviado</span></td>
+        </tr>
+        <tr data-status="entregado">
+          <td>#0999</td>
+          <td>2025-04-20</td>
+          <td>Mouse Inalámbrico</td>
+          <td>2</td>
+          <td>S/ 240.00</td>
+          <td><span class="status entregado">Entregado</span></td>
+        </tr>
+        <tr data-status="cancelado">
+          <td>#0998</td>
+          <td>2025-04-18</td>
+          <td>Monitor 24"</td>
+          <td>1</td>
+          <td>S/ 700.00</td>
+          <td><span class="status cancelado">Cancelado</span></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <script>
+    const filterSelect = document.getElementById('filterStatus');
+    const ordersTable = document.getElementById('ordersTable');
+
+    filterSelect.addEventListener('change', () => {
+      const filter = filterSelect.value;
+      const rows = ordersTable.querySelectorAll('tr');
+
+      rows.forEach(row => {
+        if (filter === 'todos' || row.dataset.status === filter) {
+          row.style.display = '';
+        } else {
+          row.style.display = 'none';
+        }
+      });
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,264 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Soporte Técnico - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css"/>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+  <style>
+    /* Contenido Principal */
+.container {
+  max-width: 800px;
+  margin: 30px auto;
+  background-color: #FFFFFF;
+  padding: 30px;
+  border-radius: 12px;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.05);
+}
+
+h1, h2 {
+  color: #2B2B2B;
+}
+
+.faq-section {
+  margin-top: 20px;
+}
+
+.soporte-info-box {
+  display: flex;
+  gap: 15px;
+  background-color: #F2F2F2;
+  border-left: 6px solid #FA6C5A;
+  padding: 20px;
+  margin-top: 20px;
+  border-radius: 10px;
+  align-items: flex-start;
+  box-shadow: 0 0 10px rgba(250, 108, 90, 0.1);
+}
+
+.soporte-info-box i {
+  font-size: 32px;
+  color: #FA6C5A;
+  margin-top: 4px;
+}
+
+.soporte-info-box p {
+  margin: 0 0 5px 0;
+  color: #2B2B2B;
+  font-size: 16px;
+}
+
+.faq-question {
+  background-color: #FA6C5A;
+  color: #FFFFFF;
+  padding: 12px;
+  border: none;
+  width: 100%;
+  text-align: left;
+  border-radius: 6px;
+  cursor: pointer;
+  margin-bottom: 5px;
+}
+
+.faq-answer {
+  display: none;
+  padding: 10px 15px;
+  background-color: #F2F2F2;
+  border-left: 4px solid #FA6C5A;
+  border-radius: 4px;
+  margin-bottom: 10px;
+}
+
+form {
+  margin-top: 20px;
+}
+
+label {
+  display: block;
+  margin-top: 15px;
+  font-weight: bold;
+  color: #2B2B2B;
+}
+
+input, textarea {
+  width: 100%;
+  padding: 10px;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+  margin-top: 5px;
+  background-color: #FFFFFF;
+  color: #2B2B2B;
+}
+
+button[type="submit"] {
+  margin-top: 15px;
+  background-color: #2B2B2B;
+  color: #FFFFFF;
+  padding: 12px;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+button[type="submit"]:hover {
+  background-color: #000000;
+}
+
+.hidden {
+  display: none;
+}
+
+#confirmacion {
+  margin-top: 15px;
+  color: #b35b55;
+  font-weight: bold;
+}
+
+  </style>
+</head>
+<body>
+    <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- CONTENIDO DE SOPORTE TÉCNICO -->
+  <main class="container">
+  <header>
+    <h1>Soporte Técnico</h1>
+    <p>Estamos aquí para ayudarte con cualquier problema técnico relacionado con tus productos TechNova.</p>
+    <div class="soporte-info-box">
+    <i class="fas fa-info-circle"></i>
+    <div>
+      <p><strong>¿Sabías que?</strong> Todos los productos TechNova incluyen <strong>6 meses de soporte técnico gratuito</strong> desde la fecha de compra.</p>
+      <p>Después de este periodo, puedes seguir accediendo a nuestro servicio, con un costo que dependerá del diagnóstico técnico realizado por nuestros especialistas.</p>
+    </div>
+  </div>
+  </header>
+
+
+  <section class="faq-section">
+    <h2>Preguntas Frecuentes</h2>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Cómo solicito soporte técnico?</button>
+      <div class="faq-answer">
+        <p>Completa el formulario más abajo o contáctanos al 0800-TECHSUP (832-4787).</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿Qué incluye el soporte?</button>
+      <div class="faq-answer">
+        <p>Diagnóstico, soporte remoto, reparaciones y mantenimiento preventivo.</p>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question">¿El soporte técnico tiene algún costo?</button>
+      <div class="faq-answer">
+        <p>No durante los primeros 6 meses desde la compra del producto. Después de ese plazo, el costo dependerá del análisis técnico del problema.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="form-section">
+    <h2>Formulario de Solicitud</h2>
+    <form id="soporteForm">
+      <label for="nombre">Nombre completo</label>
+      <input type="text" id="nombre" name="nombre" required>
+
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" required>
+
+      <label for="producto">Producto afectado</label>
+      <input type="text" id="producto" name="producto" required>
+
+      <label for="mensaje">Descripción del problema</label>
+      <textarea id="mensaje" name="mensaje" rows="5" required></textarea>
+
+      <button type="submit">Enviar Solicitud</button>
+    </form>
+    <p id="confirmacion" class="hidden">✅ Tu solicitud fue enviada exitosamente. Nos contactaremos pronto.</p>
+  </section>
+</main>
+
+  <script>
+    // Toggle de preguntas frecuentes
+document.querySelectorAll(".faq-question").forEach(button => {
+  button.addEventListener("click", () => {
+    const answer = button.nextElementSibling;
+    answer.style.display = (answer.style.display === "block") ? "none" : "block";
+  });
+});
+
+// Envío del formulario
+document.getElementById("soporteForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  document.getElementById("confirmacion").classList.remove("hidden");
+  this.reset();
+});
+  </script>
+</body>
+</html>

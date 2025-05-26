@@ -1,0 +1,290 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+
+    <style>
+
+        /* Banner */
+  .banner {
+    background: url('../frontend/Imagenes/nosotros2.jpg') center/cover no-repeat;
+    color: white;
+    text-align: center;
+    padding: 100px 100px;
+    margin-top: 0px;
+  }
+  
+  .banner h1 {
+    font-size: 70px;
+    margin-bottom: 10px;
+    top: 0;
+    z-index: 1;
+    text-align: center;
+    color: black;    
+    text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4);
+  }
+  
+  .banner p {
+    font-size: 50px;
+    text-align: center;
+    color: black;
+    text-shadow:
+    0 0 10px rgba(255, 255, 255, 0.8),
+    0 0 20px rgba(255, 255, 255, 0.6),
+    0 0 30px rgba(255, 255, 255, 0.4);
+  }
+  
+  /* Secciones (Propósito, Misión, Visión) */
+  .seccion {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 60px 10%;
+    gap: 40px;
+    background-color: #f8f8f8;
+    flex-wrap: wrap;
+  }
+  
+  .seccion:nth-child(even) {
+    background-color: #2c3e50;
+    color: white;
+  }
+  
+  .seccion .texto {
+    flex: 1;
+    min-width: 280px;
+  }
+  
+  .seccion .texto h2 {
+    font-size: 30px;
+    margin-bottom: 10px;
+    text-align: center;
+  }
+  
+  .seccion .texto p {
+    font-size: 20px;
+    line-height: 1.6;
+  }
+  
+  .seccion .imagen {
+    flex: 1;
+    min-width: 280px;
+    text-align: center;
+  }
+  
+  .seccion .imagen img {
+    max-width: 100%;
+    border-radius: 8px;
+  }
+  
+  .seccion-invertida {
+    flex-direction: row-reverse;
+  }
+  
+  /* Nuestro Equipo */
+  .nuestro-equipo {
+    padding: 60px 20px;
+    background-color: #f4f4f4;
+    text-align: center;
+  }
+  
+  .nuestro-equipo h2 {
+    font-size: 28px;
+    margin-bottom: 40px;
+  }
+  
+  .equipo-contenedor {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 30px;
+  }
+  
+  .card {
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.1);
+    width: 220px;
+    padding: 20px;
+    transition: transform 0.2s ease;
+  }
+  
+  .card:hover {
+    transform: translateY(-5px);
+  }
+  
+  .card img {
+    width: 100%;
+    border-radius: 50%;
+    height: 180px;
+    object-fit: cover;
+    margin-bottom: 15px;
+  }
+  
+  .card h4 {
+    margin: 10px 0 5px;
+    font-size: 18px;
+  }
+  
+  .card p {
+    font-size: 14px;
+    color: #777;
+  }
+  
+  /* Responsive */
+  @media screen and (max-width: 768px) {
+    .seccion {
+      flex-direction: column;
+      text-align: center;
+    }
+  
+    .seccion-invertida {
+      flex-direction: column;
+    }
+  }
+    </style>
+</head>
+<body>
+    <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+    
+     <!-- Banner Principal -->
+  <section class="banner">
+    <h1>¿Quiénes Somos?</h1>
+    <p>Innovación que impulsa tu tecnología.</p>
+  </section>
+
+  <!-- Propósito -->
+  <section class="seccion">
+    <div class="texto">
+      <h2>NUESTRO PROPÓSITO</h2>
+      <p>Facilitar el acceso a la tecnología moderna para personas y empresas, impulsando el desarrollo digital y mejorando la vida cotidiana mediante soluciones confiables, innovadoras y accesibles.</p>
+    </div>
+    <div class="imagen">
+      <img src="Imagenes/proposito.jpeg" alt="Propósito">
+    </div>
+  </section>
+
+  <!-- Misión -->
+  <section class="seccion seccion-invertida">
+    <div class="texto">
+      <h2>MISIÓN</h2>
+      <p>Brindar a nuestros clientes una experiencia de compra ágil, segura y personalizada, ofreciendo productos tecnológicos de alta calidad, con un servicio postventa eficiente y atención especializada tanto en tienda física como en línea.</p>
+    </div>
+    <div class="imagen">
+      <img src="Imagenes/mision.jpeg" alt="Misión">
+    </div>
+  </section>
+
+  <!-- Visión -->
+  <section class="seccion">
+    <div class="texto">
+      <h2>VISIÓN</h2>
+      <p>Ser la tienda tecnológica líder a nivel nacional, reconocida por su innovación, excelencia en el servicio y compromiso con la satisfacción del cliente, convirtiéndonos en el referente preferido en productos y servicios tecnológicos en el Perú.</p>
+    </div>
+    <div class="imagen">
+      <img src="Imagenes/vision.jpg" alt="Visión">
+    </div>
+  </section>
+
+  <!-- Nuestro Equipo -->
+  <section class="nuestro-equipo">
+    <h2>NUESTRO EQUIPO</h2>
+    <div class="equipo-contenedor">
+
+      <div class="card">
+        <img src="Imagenes/gerente.jpeg" alt="Cristian Kenji">
+        <h4>Carlos Alberto Mendoza Rojas</h4>
+        <p>Gerente General</p>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/online.jpeg" alt="Hugo Daniel">
+        <h4>Andrea Isabel Salazar Morales</h4>
+        <p>Responsable de Marketing</p>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/tecnico.jpeg" alt="Brany Alexis">
+        <h4>Carlos Andrés Medina Ríos</h4>
+        <p>Técnico de Soporte y Mantenimiento de Equipos</p>
+      </div>
+
+      <div class="card">
+        <img src="Imagenes/especialista.jpeg" alt="Richard Ricopa">
+        <h4>Javier Eduardo Torres Villanueva</h4>
+        <p>Coordinador de Tecnología e Infraestructura Digital</p>
+      </div>
+
+    </div>
+  </section>
+</body>
+</html>

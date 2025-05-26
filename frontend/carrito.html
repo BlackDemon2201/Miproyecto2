@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Carrito de Compras</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    .container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.left, .right {
+  background: #FFFFFF; /* blanco */
+  padding: 20px;
+  border-radius: 10px;
+  flex: 1;
+  min-width: 300px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+}
+
+.cart-item {
+  border-bottom: 1px solid #b35b55; /* rojo intenso */
+  padding: 10px 0;
+  color: #2B2B2B; /* gris oscuro */
+}
+
+.subtotal {
+  margin-top: 20px;
+  font-size: 1.2em;
+  font-weight: bold;
+  text-align: right;
+  color: #000000; /* negro */
+}
+
+h2 {
+  margin-top: 0;
+  color: #2B2B2B; /* gris oscuro */
+}
+
+.form-section {
+  margin-bottom: 20px;
+}
+
+.form-section input,
+.form-section select {
+  width: 100%;
+  padding: 8px;
+  margin-top: 5px;
+  margin-bottom: 10px;
+  border: 1px solid #b35b55; /* rojo intenso */
+  border-radius: 5px;
+  background-color: #F2F2F2; /* gris claro */
+  color: #2B2B2B; /* gris oscuro */
+}
+
+.form-section label {
+  font-weight: bold;
+  color: #2B2B2B; /* gris oscuro */
+}
+
+button {
+  background-color: #b35b55; /* rojo intenso */
+  color: #FFFFFF; /* blanco */
+  padding: 10px 20px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+button:hover {
+  background-color: #FA6C5A; /* rojo salmón */
+}
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- CARRITO DE COMPRA -->
+  <div class="container">
+    <!-- Lado Izquierdo -->
+    <div class="left">
+      <h2>Productos en tu carrito</h2>
+      <div id="cart-items"></div>
+      <div class="subtotal">
+        Subtotal: S/<span id="cart-total">0.00</span>
+      </div>
+    </div>
+
+    <!-- Lado Derecho -->
+    <div class="right">
+      <h2>Opciones de Compra</h2>
+
+      <div class="form-section">
+        <label for="envio">Tipo de Envío</label><br>
+        <select id="envio" onchange="actualizarEnvio()">
+          <option value="local">Local - Lima Metropolitana</option>
+          <option value="provincia">A otra ciudad o provincia</option>
+        </select>
+      </div>
+
+      <div class="form-section" id="datos-envio" style="display:none;">
+        <label for="direccion">Dirección de Envío</label>
+        <input type="text" id="direccion" placeholder="Dirección completa">
+        <label for="distrito">Distrito / Ciudad</label>
+        <input type="text" id="distrito" placeholder="Ej. Arequipa, Cusco">
+      </div>
+
+      <div class="form-section">
+        <label for="metodo-pago">Método de Pago</label>
+        <select id="metodo-pago">
+          <option value="tarjeta">Tarjeta de crédito/débito</option>
+          <option value="yape">Yape / Plin</option>
+          <option value="contraentrega">Contra Entrega (solo Lima Metropolitana)</option>
+        </select>
+      </div>
+
+      <div class="form-section">
+        <label for="nombre">Nombre del titular / cuenta</label>
+        <input type="text" id="nombre" placeholder="Nombre completo o titular">
+        <label for="dni">DNI o Nro. Referencia</label>
+        <input type="text" id="dni" placeholder="N° de documento o referencia">
+      </div>
+
+      <button onclick="finalizarCompra()">Finalizar Compra</button>
+    </div>
+  </div>
+
+  <script>
+  let cartItems = JSON.parse(localStorage.getItem('cart')) || [];
+
+  function renderCart() {
+    const container = document.getElementById('cart-items');
+    const totalEl = document.getElementById('cart-total');
+    let total = 0;
+
+    if (cartItems.length === 0) {
+      container.innerHTML = '<p>No hay productos en el carrito.</p>';
+      totalEl.textContent = '0.00';
+      return;
+    }
+
+    container.innerHTML = '';
+    cartItems.forEach((item, index) => {
+      const itemTotal = item.precio * item.cantidad;
+      total += itemTotal;
+
+      container.innerHTML += `
+        <div class="cart-item" style="display: flex; gap: 10px; align-items: center;">
+          <img src="${item.imagen}" alt="${item.nombre}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 5px;">
+          <div style="flex: 1;">
+            <strong>${item.nombre}</strong><br>
+            Precio unitario: S/${item.precio.toFixed(2)}<br>
+            Cantidad: 
+            <input type="number" min="1" value="${item.cantidad}" onchange="actualizarCantidad(${index}, this.value)" style="width: 60px;"><br>
+            Total: S/${itemTotal.toFixed(2)}
+          </div>
+          <button onclick="eliminarProducto(${index})" style="background-color: #dc3545; color: white; border: none; padding: 5px 10px; border-radius: 4px;">Eliminar</button>
+        </div>
+      `;
+    });
+
+    totalEl.textContent = total.toFixed(2);
+  }
+
+  function eliminarProducto(index) {
+    if (confirm('¿Estás seguro de eliminar este producto del carrito?')) {
+      cartItems.splice(index, 1);
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      renderCart();
+    }
+  }
+
+  function actualizarCantidad(index, nuevaCantidad) {
+    const cantidad = parseInt(nuevaCantidad);
+    if (cantidad > 0) {
+      cartItems[index].cantidad = cantidad;
+      localStorage.setItem('cart', JSON.stringify(cartItems));
+      renderCart();
+    }
+  }
+
+  function actualizarEnvio() {
+    const envio = document.getElementById('envio').value;
+    const datosEnvio = document.getElementById('datos-envio');
+    const metodoPago = document.getElementById('metodo-pago');
+
+    if (envio === 'provincia') {
+      datosEnvio.style.display = 'block';
+      [...metodoPago.options].forEach(opt => {
+        if (opt.value === 'contraentrega') opt.disabled = true;
+      });
+      if (metodoPago.value === 'contraentrega') metodoPago.value = 'tarjeta';
+    } else {
+      datosEnvio.style.display = 'none';
+      [...metodoPago.options].forEach(opt => opt.disabled = false);
+    }
+  }
+
+  function finalizarCompra() {
+    const tipoEnvio = document.getElementById('envio').value;
+    const metodoPago = document.getElementById('metodo-pago').value;
+    const nombre = document.getElementById('nombre').value;
+
+    if (tipoEnvio === 'provincia') {
+      const direccion = document.getElementById('direccion').value;
+      const distrito = document.getElementById('distrito').value;
+      if (!direccion || !distrito) {
+        alert('Por favor completa los datos de envío.');
+        return;
+      }
+    }
+
+    if (!nombre) {
+      alert('Por favor ingresa el nombre del titular o cuenta.');
+      return;
+    }
+
+    alert('¡Compra finalizada! Gracias por confiar en TechNova.');
+    localStorage.removeItem('cart');
+    window.location.href = 'index.html';
+  }
+
+  renderCart();
+</script>
+
+</body>
+</html>

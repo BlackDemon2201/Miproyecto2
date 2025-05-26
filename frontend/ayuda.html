@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Ayuda - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+  <style>
+
+   .ayuda-section {
+  padding: 40px 20px;
+  max-width: 900px;
+  margin: auto;
+}
+
+.ayuda-section h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #2B2B2B; /* gris oscuro */
+}
+
+.faq-item {
+  margin-bottom: 15px;
+  border: 1px solid #b35b55; /* rojo intenso */
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.faq-question {
+  background: #b35b55; /* rojo intenso */
+  color: #FFFFFF; /* blanco */
+  padding: 15px;
+  font-size: 1rem;
+  cursor: pointer;
+  position: relative;
+}
+
+.faq-question::after {
+  content: "\f078";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  right: 20px;
+  transition: transform 0.3s ease;
+  color: #FA6C5A; /* rojo salmón */
+}
+
+.faq-question.active::after {
+  transform: rotate(180deg);
+}
+
+.faq-answer {
+  display: none;
+  background: #F2F2F2; /* gris claro */
+  padding: 15px;
+  color: #2B2B2B; /* gris oscuro */
+  line-height: 1.6;
+}
+
+.faq-answer.active {
+  display: block;
+}
+  </style>
+</head>
+<body>
+
+      <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- Sección de Ayuda -->
+
+  <section class="ayuda-section">
+    <h2>Centro de Ayuda</h2>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Cómo realizo una compra en línea?</div>
+      <div class="faq-answer">Puedes buscar el producto que deseas, añadirlo al carrito y luego proceder a pagar con tu método preferido.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Ofrecen envíos a todo el país?</div>
+      <div class="faq-answer">Sí, hacemos envíos a todo el Perú mediante operadores logísticos confiables como Olva Courier, Shalom, y más.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Qué hago si mi producto llegó defectuoso?</div>
+      <div class="faq-answer">Puedes comunicarte con nuestro soporte dentro de las primeras 48 horas para coordinar el cambio o garantía.</div>
+    </div>
+
+    <div class="faq-item">
+      <div class="faq-question">¿Dónde puedo ver el estado de mi pedido?</div>
+      <div class="faq-answer">Ingresa con tu cuenta y ve al apartado "Historial de Compras" para ver todos los detalles de tus pedidos.</div>
+    </div>
+  </section>
+
+  <script>
+    const questions = document.querySelectorAll(".faq-question");
+    questions.forEach(q => {
+      q.addEventListener("click", () => {
+        q.classList.toggle("active");
+        const answer = q.nextElementSibling;
+        answer.classList.toggle("active");
+      });
+    });
+  </script>
+
+</body>
+</html>

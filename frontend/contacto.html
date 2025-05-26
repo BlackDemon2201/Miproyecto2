@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Contacto - TechNova</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <style>
+
+   .contact-section {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 30px;
+  padding: 40px 20px;
+  max-width: 1200px;
+  margin: auto;
+}
+
+.contact-info, .contact-form {
+  flex: 1 1 45%;
+  background-color: #2B2B2B; /* gris oscuro */
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+.contact-info h2, .contact-form h2 {
+  margin-bottom: 20px;
+  color: #FA6C5A; /* rojo salmón */
+}
+
+.contact-info p, .contact-info li {
+  line-height: 1.8;
+  color: #F2F2F2; /* gris claro */
+}
+
+.contact-info ul {
+  list-style: none;
+  padding: 0;
+}
+
+.contact-info li i {
+  margin-right: 10px;
+  color: #b35b55; /* rojo intenso */
+}
+
+.contact-form form {
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 15px;
+  padding: 10px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #000000; /* negro */
+  color: #F2F2F2; /* gris claro */
+}
+
+.contact-form textarea {
+  resize: vertical;
+  min-height: 100px;
+}
+
+.contact-form button {
+  background-color: #b35b55; /* rojo intenso */
+  color: #FFFFFF; /* blanco */
+  padding: 12px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.contact-form button:hover {
+  background-color: #FA6C5A; /* rojo salmón */
+}
+
+/* Map Responsive */
+.map {
+  width: 100%;
+  height: 300px;
+  margin-top: 30px;
+  border: 0;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.7);
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    flex-direction: column;
+  }
+}
+  </style>
+</head>
+<body>
+
+    <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+  <!-- Contacto -->
+
+<section class="contact-section">
+  <div class="contact-info">
+    <h2>Contacto</h2>
+    <p>¿Tienes alguna pregunta o necesitas asistencia? ¡Contáctanos!</p>
+    <ul>
+      <li><i class="fas fa-map-marker-alt"></i> Av. Los Próceres 123, Lima, Perú</li>
+      <li><i class="fas fa-phone-alt"></i> +51 987 654 321</li>
+      <li><i class="fas fa-envelope"></i> contacto@technova.pe</li>
+      <li><i class="fas fa-clock"></i> Lun - Sáb: 9am - 6pm</li>
+    </ul>
+  </div>
+
+  <div class="contact-form">
+    <h2>Escríbenos</h2>
+    <form action="#" method="post">
+      <input type="text" name="name" placeholder="Tu nombre" required>
+      <input type="email" name="email" placeholder="ejemplo@gmail.com" required>
+      <textarea name="message" placeholder="Tu mensaje..." required></textarea>
+      <button type="submit">Enviar Mensaje</button>
+    </form>
+  </div>
+</section>
+
+<!-- Mapa de ubicación -->
+<div style="padding: 0 20px; max-width: 1200px; margin: 0 auto;">
+  <iframe class="map" src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3900.852845647114!2d-77.04275448458336!3d-12.125823591401282!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x9105c8c1cb6325a1%3A0x346d9d6e6d22ce23!2sAv.%20Los%20Pr%C3%B3ceres%20123%2C%20Lima%2015012%2C%20Per%C3%BA!5e0!3m2!1ses-419!2s!4v1700000000000" allowfullscreen="" loading="lazy"></iframe>
+</div>
+
+<script>
+  document.querySelector("form").addEventListener("submit", function (e) {
+    e.preventDefault(); // Evita recarga
+
+    const name = document.querySelector('input[name="name"]');
+    const email = document.querySelector('input[name="email"]');
+    const message = document.querySelector('textarea[name="message"]');
+
+    if (!name.value || !email.value || !message.value) {
+      alert("Por favor completa todos los campos.");
+      return;
+    }
+
+    // Mensaje de éxito simulado
+    alert("Gracias por contactarnos. Te responderemos pronto.");
+
+    // Limpiar formulario
+    name.value = "";
+    email.value = "";
+    message.value = "";
+  });
+</script>
+
+</body>
+</html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Accesorios - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    /* Igual que en el código original, para no repetir, aquí copié el CSS tal cual */
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: flex;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .sidebar {
+      flex: 0 0 250px;
+      background: var(--gris-claro);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+      color: var(--gris-oscuro);
+    }
+    .sidebar h2 {
+      font-size: 1.5em;
+      margin-bottom: 1rem;
+      color: var(--rojo-intenso);
+    }
+    .filter-group {
+      margin-bottom: 1.5rem;
+    }
+    .filter-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: var(--gris-oscuro);
+    }
+    .filter-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    .filter-group input[type="number"] {
+      width: 100%;
+      padding: 6px 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid var(--gris-oscuro);
+      border-radius: 5px;
+      color: var(--gris-oscuro);
+    }
+    .filter-group input[type="number"]:focus {
+      outline: none;
+      border-color: var(--rojo-intenso);
+      box-shadow: 0 0 5px var(--rojo-intenso);
+    }
+    .filter-group button {
+      background-color: var(--rojo-salmon);
+      color: var(--blanco);
+      border: none;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+    .filter-group button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .products-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--blanco);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      color: var(--gris-oscuro);
+    }
+    .card img {
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      max-width: 100%;
+    }
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--rojo-intenso);
+    }
+    .price {
+      color: var(--negro);
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .description {
+      margin: 10px 0 20px;
+      color: var(--gris-oscuro);
+      opacity: 0.7;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: var(--rojo-salmon);
+      color: var(--blanco);
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .pagination {
+      max-width: 1000px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .pagination button {
+      background-color: var(--rojo-salmon);
+      border: none;
+      color: var(--blanco);
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .pagination button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .pagination button.active {
+      background-color: var(--gris-oscuro);
+      cursor: default;
+      color: var(--blanco);
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<main class="main-content">
+
+  <aside class="sidebar">
+    <h2>Filtros para Accesorios</h2>
+    <form id="filterForm">
+      <div class="filter-group">
+        <label>Tipo de Accesorio:</label>
+        <label><input type="checkbox" name="tipo" value="cargador" /> Cargador</label>
+        <label><input type="checkbox" name="tipo" value="funda" /> Funda</label>
+        <label><input type="checkbox" name="tipo" value="adaptador" /> Adaptador</label>
+        <label><input type="checkbox" name="tipo" value="memoria" /> Memoria USB</label>
+        <label><input type="checkbox" name="tipo" value="soporte" /> Soporte</label>
+      </div>
+
+      <div class="filter-group">
+      <label for="price-min">Precio mínimo (S/)</label>
+      <input type="number" id="price-min" placeholder="0" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <label for="price-max">Precio máximo (S/)</label>
+      <input type="number" id="price-max" placeholder="7000" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <button id="apply-filters">Aplicar filtros</button>
+      <button id="clear-filters" style="margin-top:10px; background:#ddd; color:#333;">Limpiar filtros</button>
+    </div>
+  </aside>
+
+  <section class="products-container" id="productsContainer">
+    <!-- Productos se llenarán con JS -->
+  </section>
+
+</main>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+ const accesorios = [
+  { id: 1, category: "Cargador", brand: "Anker", model: "PowerPort 4", price: 120, description: "Cargador rápido USB con 4 puertos", image: "img/cargador-anker.jpg" },
+  { id: 2, category: "Funda", brand: "Spigen", model: "Rugged Armor", price: 80, description: "Funda resistente para smartphones", image: "img/funda-spigen.jpg" },
+  { id: 3, category: "Adaptador", brand: "Belkin", model: "USB-C a HDMI", price: 150, description: "Adaptador USB-C a HDMI para video 4K", image: "img/adaptador-belkin.jpg" },
+  { id: 4, category: "Memoria", brand: "Kingston", model: "DataTraveler 64GB", price: 150, description: "Memoria USB 3.0 de alta velocidad", image: "img/memoria-kingston.jpg" },
+  { id: 5, category: "Soporte", brand: "Nulaxy", model: "Soporte Ajustable", price: 90, description: "Soporte para laptops y tablets ajustable", image: "img/soporte-nulaxy.jpg" },
+  { id: 6, category: "Cargador", brand: "RAVPower", model: "USB-C 65W", price: 200, description: "Cargador USB-C rápido de 65W", image: "img/cargador-ravpower.jpg" },
+  { id: 7, category: "Funda", brand: "OtterBox", model: "Defender Series", price: 110, description: "Funda ultra resistente para smartphones", image: "img/funda-otterbox.jpg" },
+  { id: 8, category: "Adaptador", brand: "UGREEN", model: "Multi Puerto", price: 180, description: "Adaptador con múltiples puertos USB y HDMI", image: "img/adaptador-ugreen.jpg" },
+  { id: 9, category: "Memoria", brand: "SanDisk", model: "Cruzer 128GB", price: 270, description: "Pendrive de alta capacidad y velocidad", image: "img/memoria-sandisk.jpg" },
+  { id: 10, category: "Soporte", brand: "Lamicall", model: "Soporte para teléfono", price: 70, description: "Soporte para celular ajustable", image: "img/soporte-lamicall.jpg" },
+  { id: 11, category: "Cargador", brand: "Baseus", model: "Quick Charge 3.0", price: 130, description: "Cargador rápido para smartphones y tablets", image: "img/cargador-baseus.jpg" },
+  { id: 12, category: "Funda", brand: "Caseology", model: "Parallax", price: 75, description: "Funda ligera y resistente para celulares", image: "img/funda-caseology.jpg" },
+  { id: 13, category: "Adaptador", brand: "Cable Matters", model: "Thunderbolt 3", price: 190, description: "Adaptador Thunderbolt 3 a Ethernet", image: "img/adaptador-cablematters.jpg" },
+  { id: 14, category: "Memoria", brand: "PNY", model: "Elite USB 3.1 256GB", price: 320, description: "Pendrive rápido para almacenamiento", image: "img/memoria-pny.jpg" },
+  { id: 15, category: "Soporte", brand: "MoKo", model: "Soporte plegable", price: 85, description: "Soporte portátil para tablets y smartphones", image: "img/soporte-moko.jpg" },
+  { id: 16, category: "Cargador", brand: "Aukey", model: "Dual Port 30W", price: 110, description: "Cargador rápido con dos puertos USB", image: "img/cargador-aukey.jpg" },
+  { id: 17, category: "Funda", brand: "Speck", model: "Presidio", price: 95, description: "Funda con protección contra caídas", image: "img/funda-speck.jpg" },
+  { id: 18, category: "Adaptador", brand: "Sabrent", model: "USB-C a 3.5mm", price: 70, description: "Adaptador para audio de alta calidad", image: "img/adaptador-sabrent.jpg" },
+  { id: 19, category: "Memoria", brand: "Transcend", model: "JetFlash 128GB", price: 260, description: "Memoria USB 3.1 resistente al agua", image: "img/memoria-transcend.jpg" },
+  { id: 20, category: "Soporte", brand: "Twelve South", model: "Curve Stand", price: 180, description: "Soporte elegante para laptops", image: "img/soporte-twelvesouth.jpg" },
+];
+
+  const productsContainer = document.getElementById('productsContainer');
+  const paginationContainer = document.getElementById('pagination');
+  const applyFiltersBtn = document.getElementById('apply-filters');
+  const clearFiltersBtn = document.getElementById('clear-filters');
+  const priceMinInput = document.getElementById('price-min');
+  const priceMaxInput = document.getElementById('price-max');
+  const filterForm = document.getElementById('filterForm');
+
+  let currentPage = 1;
+  const productsPerPage = 6;
+  let filteredAccesorios = accesorios;
+
+  function displayProducts(page = 1) {
+    productsContainer.innerHTML = '';
+
+    const start = (page - 1) * productsPerPage;
+    const end = start + productsPerPage;
+    const paginatedProducts = filteredAccesorios.slice(start, end);
+
+    if (paginatedProducts.length === 0) {
+      productsContainer.innerHTML = '<p>No se encontraron productos.</p>';
+      paginationContainer.innerHTML = '';
+      return;
+    }
+
+    paginatedProducts.forEach(product => {
+      const card = document.createElement('div');
+      card.className = 'card';
+
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.brand} ${product.model}" />
+        <h3>${product.brand} ${product.model}</h3>
+        <p class="price">S/ ${product.price.toFixed(2)}</p>
+        <p class="description">${product.description}</p>
+        <button class="button">Añadir al carrito</button>
+        <button class="button">Ver detalle</button>
+      `;
+
+      productsContainer.appendChild(card);
+    });
+
+    setupPagination();
+  }
+
+  function setupPagination() {
+    paginationContainer.innerHTML = '';
+
+    const totalPages = Math.ceil(filteredAccesorios.length / productsPerPage);
+
+    if (totalPages <= 1) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      btn.className = i === currentPage ? 'active' : '';
+      btn.addEventListener('click', () => {
+        currentPage = i;
+        displayProducts(currentPage);
+      });
+      paginationContainer.appendChild(btn);
+    }
+  }
+
+  function applyFilters() {
+    const checkedTypes = Array.from(filterForm.tipo)
+      .filter(checkbox => checkbox.checked)
+      .map(checkbox => checkbox.value.toLowerCase());
+
+    const minPrice = parseFloat(priceMinInput.value) || 0;
+    const maxPrice = parseFloat(priceMaxInput.value) || Infinity;
+
+    filteredAccesorios = accesorios.filter(product => {
+      const categoryMatch = checkedTypes.length ? checkedTypes.includes(product.category.toLowerCase()) : true;
+      const priceMatch = product.price >= minPrice && product.price <= maxPrice;
+      return categoryMatch && priceMatch;
+    });
+
+    currentPage = 1;
+    displayProducts();
+  }
+
+  applyFiltersBtn.addEventListener('click', e => {
+    e.preventDefault();
+    applyFilters();
+  });
+
+  clearFiltersBtn.addEventListener('click', e => {
+    e.preventDefault();
+    filterForm.reset();
+    priceMinInput.value = '';
+    priceMaxInput.value = '';
+    filteredAccesorios = accesorios;
+    currentPage = 1;
+    displayProducts();
+  });
+
+  // Mostrar productos inicialmente sin filtro
+  displayProducts();
+</script>
+
+</body>
+</html>

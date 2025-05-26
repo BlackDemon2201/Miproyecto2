@@ -1,0 +1,421 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>PCs de Escritorio - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    .main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .sidebar {
+    flex: 0 0 250px;
+    background: var(--gris-claro);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    color: var(--gris-oscuro);
+  }
+  .sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+    color: var(--rojo-intenso);
+  }
+  .filter-group {
+    margin-bottom: 1.5rem;
+  }
+  .filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--gris-oscuro);
+  }
+  .filter-group input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  .filter-group input[type="number"] {
+    width: 100%;
+    padding: 6px 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 5px;
+    color: var(--gris-oscuro);
+  }
+  .filter-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--rojo-intenso);
+    box-shadow: 0 0 5px var(--rojo-intenso);
+  }
+  .filter-group button {
+    background-color: var(--rojo-salmon);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  .filter-group button:hover {
+    background-color: var(--rojo-intenso);
+  }
+  .products-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    color: var(--gris-oscuro);
+  }
+  .card img {
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+  .card h3 {
+    margin: 0.5rem 0;
+    color: var(--rojo-intenso);
+  }
+  .price {
+    color: var(--negro);
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  .description {
+    margin: 10px 0 20px;
+    color: var(--gris-oscuro);
+    opacity: 0.7;
+  }
+  .button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--rojo-salmon);
+    color: var(--blanco);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: var(--rojo-intenso);
+  }
+  .pagination {
+    max-width: 1000px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  .pagination button {
+    background-color: var(--rojo-salmon);
+    border: none;
+    color: var(--blanco);
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  .pagination button:hover {
+    background-color: var(--rojo-intenso);
+  }
+  .pagination button.active {
+    background-color: var(--gris-oscuro);
+    cursor: default;
+    color: var(--blanco);
+  }
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="main-content">
+
+  <aside class="sidebar">
+    <h2>Filtrar PCs</h2>
+
+    <div class="filter-group">
+      <label>Marca</label>
+      <label><input type="checkbox" class="filter-brand" value="HP" /> HP</label>
+      <label><input type="checkbox" class="filter-brand" value="Lenovo" /> Lenovo</label>
+      <label><input type="checkbox" class="filter-brand" value="Acer" /> Acer</label>
+      <label><input type="checkbox" class="filter-brand" value="ASUS" /> ASUS</label>
+      <label><input type="checkbox" class="filter-brand" value="MSI" /> MSI</label>
+      <label><input type="checkbox" class="filter-brand" value="Dell" /> Dell</label>
+    </div>
+
+    <div class="filter-group">
+      <label for="price-min">Precio mínimo (S/)</label>
+      <input type="number" id="price-min" placeholder="0" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <label for="price-max">Precio máximo (S/)</label>
+      <input type="number" id="price-max" placeholder="7000" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <button id="apply-filters">Aplicar filtros</button>
+      <button id="clear-filters" style="margin-top:10px; background:#ddd; color:#333;">Limpiar filtros</button>
+    </div>
+  </aside>
+
+  <section class="products-container" id="products-container">
+    <!-- Los productos se insertan aquí dinámicamente -->
+  </section>
+</div>
+
+<div class="pagination" id="pagination">
+  <!-- Paginación se inserta aquí -->
+</div>
+
+<script>
+const pcsEscritorio = [
+  { id: 1, brand: "HP", model: "Pavilion Gaming TG01", price: 4200, description: "PC HP con Ryzen 5, 16GB RAM, SSD 512GB y GTX 1650", image: "img/hp-gaming.jpg" },
+  { id: 2, brand: "Lenovo", model: "IdeaCentre 5", price: 3800, description: "Intel Core i5, 12GB RAM, 1TB HDD, Windows 11", image: "img/lenovo-ideacentre.jpg" },
+  { id: 3, brand: "MSI", model: "Codex R", price: 5600, description: "Gaming PC con Intel i7, 32GB RAM y RTX 3060", image: "img/msi-codex.jpg" },
+  { id: 4, brand: "Acer", model: "Aspire TC", price: 3000, description: "Intel i3, 8GB RAM, SSD 256GB, ideal para oficina", image: "img/acer-aspire.jpg" },
+  { id: 5, brand: "Dell", model: "XPS Desktop", price: 6700, description: "Potente torre con Intel i9, 32GB RAM, 1TB SSD", image: "img/dell-xps.jpg" },
+  { id: 6, brand: "Asus", model: "ROG Strix G10", price: 5900, description: "PC gamer con Ryzen 7, 16GB RAM y RTX 3060 Ti", image: "img/asus-rog.jpg" },
+  { id: 7, brand: "HP", model: "EliteDesk 800", price: 3300, description: "PC corporativa con i5, 16GB RAM y SSD 512GB", image: "img/hp-elitedesk.jpg" },
+  { id: 8, brand: "Lenovo", model: "ThinkCentre M70", price: 2700, description: "Equipo compacto con i3, 8GB RAM, 256GB SSD", image: "img/lenovo-thinkcentre.jpg" },
+  { id: 9, brand: "Acer", model: "Nitro 50", price: 5100, description: "Gamer PC con Intel i5, 16GB RAM y GTX 1660 Super", image: "img/acer-nitro.jpg" },
+  { id: 10, brand: "Dell", model: "Inspiron Desktop", price: 2900, description: "PC básica con Ryzen 3, 8GB RAM y 1TB HDD", image: "img/dell-inspiron.jpg" },
+  { id: 11, brand: "MSI", model: "MAG Infinite", price: 7200, description: "PC alta gama con i9, 64GB RAM y RTX 4080", image: "img/msi-mag.jpg" },
+  { id: 12, brand: "HP", model: "ProDesk 400", price: 3100, description: "PC empresarial con i5, SSD 256GB y 8GB RAM", image: "img/hp-prodesk.jpg" },
+  { id: 13, brand: "Lenovo", model: "IdeaCentre AIO 3", price: 4500, description: "Todo en uno con Ryzen 7 y pantalla Full HD", image: "img/lenovo-aio.jpg" },
+  { id: 14, brand: "Acer", model: "Veriton X", price: 2500, description: "Compacto y eficiente para tareas de oficina", image: "img/acer-veriton.jpg" },
+  { id: 15, brand: "Asus", model: "ExpertCenter", price: 3400, description: "Ideal para negocios con i5 y SSD 512GB", image: "img/asus-expert.jpg" },
+  { id: 16, brand: "Dell", model: "OptiPlex 7000", price: 3900, description: "PC profesional con i7 y 16GB RAM", image: "img/dell-optiplex.jpg" },
+  { id: 17, brand: "MSI", model: "PRO DP20Z", price: 2800, description: "Mini PC con Ryzen 5, SSD 512GB y 8GB RAM", image: "img/msi-pro.jpg" },
+  { id: 18, brand: "HP", model: "OMEN 25L", price: 6400, description: "PC gamer con i7 y RTX 3070", image: "img/hp-omen.jpg" },
+  { id: 19, brand: "Asus", model: "VivoPC", price: 2300, description: "Diseño compacto con rendimiento aceptable", image: "img/asus-vivo.jpg" },
+  { id: 20, brand: "Lenovo", model: "Legion T5", price: 6800, description: "PC gamer con Ryzen 9 y RTX 3080", image: "img/lenovo-legion.jpg" }
+];
+
+  const productsContainer = document.getElementById("products-container");
+  const applyFiltersBtn = document.getElementById("apply-filters");
+  const clearFiltersBtn = document.getElementById("clear-filters");
+  const pagination = document.getElementById("pagination");
+  const cartCount = document.getElementById("cart-count"); // Añade un span o div con este id para mostrar la cantidad en carrito
+
+  const itemsPerPage = 4;
+  let currentPage = 1;
+  let currentFilteredProducts = pcsEscritorio.slice(); // copia inicial sin filtros
+
+  // Carrito como arreglo de objetos {productId, quantity}
+  let cart = [];
+
+  // Renderiza los productos según la página y la lista filtrada
+  function renderProducts(page = 1, filteredProducts = pcsEscritorio) {
+    productsContainer.innerHTML = "";
+
+    // Paginación
+    const startIndex = (page - 1) * itemsPerPage;
+    const paginatedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+
+    if (paginatedProducts.length === 0) {
+      productsContainer.innerHTML = "<p>No hay productos que coincidan con los filtros.</p>";
+      pagination.innerHTML = "";
+      return;
+    }
+
+    paginatedProducts.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.brand} ${product.model}" />
+        <h3>${product.brand} ${product.model}</h3>
+        <p class="price">S/ ${product.price.toLocaleString()}</p>
+        <p class="description">${product.description}</p>
+        <button class="button" onclick="addToCart(${product.id})">Agregar al carrito</button>
+        <button class="button" onclick="viewDetails(${product.id})">Ver detalles</button>
+      `;
+      productsContainer.appendChild(card);
+    });
+
+    renderPagination(filteredProducts.length, page);
+  }
+
+  // Renderiza botones de paginación
+  function renderPagination(totalItems, page) {
+    pagination.innerHTML = "";
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      if (i === page) {
+        btn.classList.add("active");
+      }
+      btn.addEventListener("click", () => {
+        currentPage = i;
+        renderProducts(currentPage, currentFilteredProducts);
+      });
+      pagination.appendChild(btn);
+    }
+  }
+
+  // Aplica los filtros de marca y rango de precio
+  function applyFilters() {
+    const checkedBrands = Array.from(document.querySelectorAll(".filter-brand:checked")).map(input => input.value);
+    const minPrice = parseFloat(document.getElementById("price-min").value) || 0;
+    const maxPrice = parseFloat(document.getElementById("price-max").value) || Infinity;
+
+    currentFilteredProducts = pcsEscritorio.filter(product => {
+      const matchBrand = checkedBrands.length === 0 || checkedBrands.includes(product.brand);
+      const matchPrice = product.price >= minPrice && product.price <= maxPrice;
+      return matchBrand && matchPrice;
+    });
+
+    currentPage = 1; // reset página
+    renderProducts(currentPage, currentFilteredProducts);
+  }
+
+  // Limpia los filtros y muestra todos los productos
+  function clearFilters() {
+    document.querySelectorAll(".filter-brand").forEach(input => input.checked = false);
+    document.getElementById("price-min").value = "";
+    document.getElementById("price-max").value = "";
+    currentFilteredProducts = pcsEscritorio.slice();
+    currentPage = 1;
+    renderProducts();
+    pagination.innerHTML = "";
+  }
+
+  // Añade producto al carrito y actualiza contador
+  function addToCart(productId) {
+    const itemIndex = cart.findIndex(item => item.productId === productId);
+    if (itemIndex > -1) {
+      cart[itemIndex].quantity += 1;
+    } else {
+      cart.push({ productId, quantity: 1 });
+    }
+    updateCartCount();
+    alert("Producto agregado al carrito.");
+  }
+
+  // Actualiza el contador visible de productos en carrito
+  function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+    if(cartCount) {
+      cartCount.textContent = totalItems;
+    }
+  }
+
+  function viewDetails(productId) {
+    const product = laptops.find(p => p.id === productId);
+    if(product) {
+      alert(
+        `${product.brand} ${product.model}\n\n` +
+        `Precio: S/ ${product.price.toLocaleString()}\n` +
+        `${product.description}`
+      );
+    }
+  }
+
+  // Event listeners
+  applyFiltersBtn.addEventListener("click", applyFilters);
+  clearFiltersBtn.addEventListener("click", clearFilters);
+
+  // Inicializa página con productos y carrito
+  renderProducts();
+  updateCartCount();
+
+  // Expone funciones globalmente para onclick inline (alternativa: usar addEventListener en elementos generados)
+  window.addToCart = addToCart;
+  window.viewDetails = viewDetails;
+</script>
+
+</body>
+</html>

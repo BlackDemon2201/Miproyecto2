@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ofertas - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    /* Variables de color */
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: flex;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .sidebar {
+      flex: 0 0 280px;
+      background: var(--gris-claro);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+      color: var(--gris-oscuro);
+    }
+    .sidebar h2 {
+      font-size: 1.5em;
+      margin-bottom: 1rem;
+      color: var(--rojo-intenso);
+    }
+    .filter-group {
+      margin-bottom: 1.5rem;
+    }
+    .filter-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: var(--gris-oscuro);
+    }
+    .filter-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    .filter-group input[type="number"], .filter-group select {
+      width: 100%;
+      padding: 6px 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid var(--gris-oscuro);
+      border-radius: 5px;
+      color: var(--gris-oscuro);
+    }
+    .filter-group input[type="number"]:focus, .filter-group select:focus {
+      outline: none;
+      border-color: var(--rojo-intenso);
+      box-shadow: 0 0 5px var(--rojo-intenso);
+    }
+    .filter-group button {
+      background-color: var(--rojo-salmon);
+      color: var(--blanco);
+      border: none;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+    .filter-group button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .products-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--blanco);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      color: var(--gris-oscuro);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+    }
+    .card img {
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      max-width: 100%;
+    }
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--rojo-intenso);
+      font-size: 1.1rem;
+    }
+    .price {
+      color: var(--negro);
+      font-size: 1.2em;
+      margin: 10px 0;
+      font-weight: bold;
+    }
+    .description {
+      margin: 10px 0 20px;
+      color: var(--gris-oscuro);
+      opacity: 0.7;
+      flex-grow: 1;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: var(--rojo-salmon);
+      color: var(--blanco);
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .pagination {
+      max-width: 1000px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .pagination button {
+      background-color: var(--rojo-salmon);
+      border: none;
+      color: var(--blanco);
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .pagination button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .pagination button.active {
+      background-color: var(--gris-oscuro);
+      cursor: default;
+      color: var(--blanco);
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+
+<main class="main-content">
+  <aside class="sidebar">
+    <h2>Filtros</h2>
+
+    <div class="filter-group">
+      <label for="categoriaSelect"><strong>Categoría</strong></label>
+      <select id="categoriaSelect">
+        <option value="">Todas las categorías</option>
+        <option value="laptops">Laptops</option>
+        <option value="pc_escritorio">PCs de Escritorio</option>
+        <option value="componentes">Componentes</option>
+        <option value="celulares">Celulares</option>
+        <option value="perifericos">Periféricos</option>
+        <option value="accesorios">Accesorios</option>
+      </select>
+    </div>
+
+    <div class="filter-group">
+      <label><strong>Precio (S/)</strong></label>
+      <input type="number" id="minPrice" placeholder="Mínimo" min="0" />
+      <input type="number" id="maxPrice" placeholder="Máximo" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <button id="apply-filters">Aplicar filtros</button>
+      <button id="clear-filters" style="margin-top:10px; background:#ddd; color:#333;">Limpiar filtros</button>
+    </div>
+  </aside>
+
+  <section class="products-container" id="productsContainer"></section>
+</main>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+const productos = [
+  // Los 12 productos originales
+  { id: 1, categoria: "laptops", tipo: "portatil", brand: "Dell", model: "XPS 13", description: "Laptop Dell XPS 13, Intel i7, 16GB RAM", price: 5000, img: "https://m.media-amazon.com/images/I/71jG+e7roXL._AC_SL1500_.jpg", oferta: true },
+  { id: 2, categoria: "laptops", tipo: "portatil", brand: "HP", model: "Spectre x360", description: "Convertible HP Spectre x360, Intel i7", price: 4500, img: "https://m.media-amazon.com/images/I/71fWYXe6MhL._AC_SL1500_.jpg", oferta: false },
+  { id: 3, categoria: "pc_escritorio", tipo: "escritorio", brand: "Lenovo", model: "ThinkCentre M90a", description: "PC Escritorio Lenovo ThinkCentre", price: 3800, img: "https://m.media-amazon.com/images/I/81qlH83W6nL._AC_SL1500_.jpg", oferta: true },
+  { id: 4, categoria: "pc_escritorio", tipo: "escritorio", brand: "HP", model: "Pavilion", description: "PC Escritorio HP Pavilion", price: 3200, img: "https://m.media-amazon.com/images/I/71aQhX+xIDL._AC_SL1500_.jpg", oferta: false },
+  { id: 5, categoria: "componentes", tipo: "gpu", brand: "NVIDIA", model: "RTX 3080", description: "Tarjeta gráfica NVIDIA RTX 3080", price: 4000, img: "https://m.media-amazon.com/images/I/71j1DnCjhLL._AC_SL1500_.jpg", oferta: true },
+  { id: 6, categoria: "componentes", tipo: "ssd", brand: "Samsung", model: "970 EVO Plus", description: "SSD NVMe Samsung 1TB", price: 700, img: "https://images.samsung.com/is/image/samsung/p6pim/es/ssd-970-evo-plus-1tb-mz-v7s1t0b-am_001-frontblack?$720_576_PNG$", oferta: false },
+  { id: 7, categoria: "celulares", tipo: "smartphone", brand: "Apple", model: "iPhone 14 Pro", description: "iPhone 14 Pro 128GB", price: 5500, img: "https://store.storeimages.cdn-apple.com/4668/as-images.apple.com/is/iphone-14-pro-select-2022?wid=470&hei=556&fmt=png-alpha&.v=1660753619946", oferta: true },
+  { id: 8, categoria: "celulares", tipo: "smartphone", brand: "Samsung", model: "Galaxy S23", description: "Samsung Galaxy S23 Ultra", price: 4800, img: "https://images.samsung.com/is/image/samsung/p6pim/es/sm-s911bzkgneo/gallery/es-galaxy-s23-ultra-s911-416251-sm-s911bzkgneo-530177155?$720_576_PNG$", oferta: false },
+  { id: 9, categoria: "perifericos", tipo: "teclado", brand: "Logitech", model: "G Pro X", description: "Teclado mecánico para gaming", price: 350, img: "https://resource.logitechg.com/w_692,c_limit,q_auto,f_auto,dpr_1.0/d_transparent.gif/content/dam/gaming/en/products/g-pro-x-keyboard/gallery/g-pro-x-keyboard-gallery-1.png?v=1", oferta: true },
+  { id: 10, categoria: "perifericos", tipo: "mouse", brand: "Razer", model: "DeathAdder V2", description: "Mouse gaming Razer DeathAdder V2", price: 320, img: "https://assets2.razerzone.com/images/pnx.assets/2a7d7c42e0b111acb8d58fdb1689e98d/razer-deathadder-v2-gallery-01.png", oferta: false },
+  { id: 11, categoria: "accesorios", tipo: "cargador", brand: "Anker", model: "PowerPort III", description: "Cargador rápido USB-C 65W", price: 150, img: "https://m.media-amazon.com/images/I/71F9PE0pC6L._AC_SL1500_.jpg", oferta: true },
+  { id: 12, categoria: "accesorios", tipo: "funda", brand: "Spigen", model: "Thin Fit", description: "Funda rígida para celular", price: 60, img: "https://images.spigen.com/assets/products/10091/thin_fit_003_1024x1024.png", oferta: false },
+  { id: 13, categoria: "laptops", tipo: "portatil", brand: "Acer", model: "Swift 3", description: "Acer Swift 3 con Ryzen 5", price: 3200, img: "https://m.media-amazon.com/images/I/81r8JazFz+L._AC_SL1500_.jpg", oferta: true },
+  { id: 14, categoria: "laptops", tipo: "portatil", brand: "ASUS", model: "ZenBook 14", description: "ASUS ZenBook 14 ultradelgado", price: 3900, img: "https://m.media-amazon.com/images/I/71lYhcc++AL._AC_SL1500_.jpg", oferta: false },
+  { id: 15, categoria: "pc_escritorio", tipo: "escritorio", brand: "Acer", model: "Aspire TC", description: "PC de escritorio Acer Aspire TC", price: 2900, img: "https://m.media-amazon.com/images/I/71a4ZCQsGLL._AC_SL1500_.jpg", oferta: false },
+  { id: 16, categoria: "componentes", tipo: "ram", brand: "Corsair", model: "Vengeance LPX 16GB", description: "RAM DDR4 Corsair 3200MHz", price: 400, img: "https://m.media-amazon.com/images/I/71+7E78-IgL._AC_SL1500_.jpg", oferta: true },
+  { id: 17, categoria: "componentes", tipo: "hdd", brand: "Seagate", model: "Barracuda 2TB", description: "Disco duro Seagate 7200rpm", price: 280, img: "https://m.media-amazon.com/images/I/61B8EIPKHjL._AC_SL1500_.jpg", oferta: false },
+  { id: 18, categoria: "perifericos", tipo: "monitor", brand: "LG", model: "UltraGear 24GL600F", description: "Monitor gaming 144Hz", price: 750, img: "https://m.media-amazon.com/images/I/71z3jS7F5XL._AC_SL1500_.jpg", oferta: true },
+  { id: 19, categoria: "perifericos", tipo: "audifonos", brand: "HyperX", model: "Cloud II", description: "Auriculares HyperX Cloud II", price: 430, img: "https://m.media-amazon.com/images/I/71a-5HxQxbL._AC_SL1500_.jpg", oferta: false },
+  { id: 20, categoria: "celulares", tipo: "smartphone", brand: "Xiaomi", model: "Redmi Note 12", description: "Smartphone Xiaomi económico", price: 950, img: "https://m.media-amazon.com/images/I/71nXZ-ynl1L._AC_SL1500_.jpg", oferta: true },
+  { id: 21, categoria: "componentes", tipo: "psu", brand: "EVGA", model: "600 BR", description: "Fuente de poder 600W 80+ Bronze", price: 250, img: "https://m.media-amazon.com/images/I/81yV6c1wuyL._AC_SL1500_.jpg", oferta: false },
+  { id: 22, categoria: "perifericos", tipo: "camara", brand: "Logitech", model: "C920", description: "Cámara web Full HD Logitech", price: 300, img: "https://m.media-amazon.com/images/I/61fQ5iE-fNL._AC_SL1500_.jpg", oferta: true },
+  { id: 23, categoria: "laptops", tipo: "portatil", brand: "MSI", model: "Modern 14", description: "Laptop MSI Modern 14", price: 3600, img: "https://m.media-amazon.com/images/I/61zKgWv7qlL._AC_SL1500_.jpg", oferta: false },
+  { id: 24, categoria: "accesorios", tipo: "soporte", brand: "Nulaxy", model: "A5", description: "Soporte de laptop ergonómico", price: 120, img: "https://m.media-amazon.com/images/I/61TZcl4NzUL._AC_SL1500_.jpg", oferta: true },
+  { id: 25, categoria: "accesorios", tipo: "usb", brand: "SanDisk", model: "Ultra Flair 128GB", description: "USB 3.0 SanDisk Ultra", price: 80, img: "https://m.media-amazon.com/images/I/61SnF0Ldx-L._AC_SL1500_.jpg", oferta: false },
+  { id: 26, categoria: "componentes", tipo: "placa_madre", brand: "ASRock", model: "B550M", description: "Placa madre ASRock B550M", price: 600, img: "https://m.media-amazon.com/images/I/81n8FZK8UvL._AC_SL1500_.jpg", oferta: true },
+  { id: 27, categoria: "celulares", tipo: "smartphone", brand: "Motorola", model: "Edge 40", description: "Motorola Edge con pantalla OLED", price: 2400, img: "https://m.media-amazon.com/images/I/61DCMT54J6L._AC_SL1500_.jpg", oferta: false },
+  { id: 28, categoria: "laptops", tipo: "portatil", brand: "Huawei", model: "MateBook D15", description: "Huawei MateBook con Ryzen 7", price: 3700, img: "https://m.media-amazon.com/images/I/71Om3Q83h0L._AC_SL1500_.jpg", oferta: true },
+  { id: 29, categoria: "pc_escritorio", tipo: "escritorio", brand: "ASUS", model: "ROG Strix", description: "PC gamer ASUS ROG Strix", price: 5800, img: "https://m.media-amazon.com/images/I/71bCIbFEo7L._AC_SL1500_.jpg", oferta: true },
+  { id: 30, categoria: "perifericos", tipo: "teclado", brand: "Redragon", model: "K552", description: "Teclado mecánico compacto RGB", price: 210, img: "https://m.media-amazon.com/images/I/71n1ThV0dnL._AC_SL1500_.jpg", oferta: false },
+  { id: 31, categoria: "componentes", tipo: "cooler", brand: "Cooler Master", model: "Hyper 212", description: "Disipador de aire para CPU", price: 180, img: "https://m.media-amazon.com/images/I/61YtYO-VWLL._AC_SL1500_.jpg", oferta: true },
+  { id: 32, categoria: "perifericos", tipo: "monitor", brand: "Samsung", model: "Odyssey G5", description: "Monitor curvo 144Hz", price: 980, img: "https://m.media-amazon.com/images/I/81c+9BOQNWL._AC_SL1500_.jpg", oferta: false },
+  { id: 33, categoria: "accesorios", tipo: "mochila", brand: "Targus", model: "CitySmart", description: "Mochila para laptop de 15.6 pulgadas", price: 160, img: "https://m.media-amazon.com/images/I/81u0+kszJDL._AC_SL1500_.jpg", oferta: true },
+  { id: 34, categoria: "perifericos", tipo: "audifonos", brand: "Logitech", model: "G733", description: "Auriculares inalámbricos gaming", price: 520, img: "https://m.media-amazon.com/images/I/71xjuzvwVAL._AC_SL1500_.jpg", oferta: false },
+  { id: 35, categoria: "laptops", tipo: "portatil", brand: "Lenovo", model: "IdeaPad 3", description: "Laptop Lenovo IdeaPad con Ryzen 5", price: 3100, img: "https://m.media-amazon.com/images/I/71k3gOik46L._AC_SL1500_.jpg", oferta: true },
+  { id: 36, categoria: "celulares", tipo: "smartphone", brand: "Realme", model: "11 Pro", description: "Smartphone Realme 11 Pro 5G", price: 1300, img: "https://m.media-amazon.com/images/I/81I94ykjrfL._AC_SL1500_.jpg", oferta: false },
+  { id: 37, categoria: "pc_escritorio", tipo: "escritorio", brand: "MSI", model: "Codex R", description: "PC MSI Codex R con RTX", price: 6100, img: "https://m.media-amazon.com/images/I/81jP0Xs3G2L._AC_SL1500_.jpg", oferta: true },
+  { id: 38, categoria: "accesorios", tipo: "hub", brand: "UGREEN", model: "USB-C Hub 6-en-1", description: "Adaptador USB-C multifunción", price: 140, img: "https://m.media-amazon.com/images/I/61yD4Ya+wxL._AC_SL1500_.jpg", oferta: false },
+  { id: 39, categoria: "componentes", tipo: "gpu", brand: "AMD", model: "Radeon RX 6800", description: "Tarjeta gráfica AMD Radeon RX 6800", price: 3800, img: "https://m.media-amazon.com/images/I/81+L7F1bi9L._AC_SL1500_.jpg", oferta: true },
+  { id: 40, categoria: "perifericos", tipo: "mouse", brand: "SteelSeries", model: "Rival 5", description: "Mouse gamer SteelSeries Rival 5", price: 310, img: "https://m.media-amazon.com/images/I/71Rv4PUIgtL._AC_SL1500_.jpg", oferta: false }
+];
+
+const productsPerPage = 6;
+let currentPage = 1;
+let filteredProducts = productos;
+
+const productsContainer = document.getElementById("productsContainer");
+const paginationContainer = document.getElementById("pagination");
+const checkboxesTipo = document.querySelectorAll('input[name="tipo"]');
+const inputMinPrice = document.getElementById("minPrice");
+const inputMaxPrice = document.getElementById("maxPrice");
+const categoriaSelect = document.getElementById("categoriaSelect");
+
+const btnApplyFilters = document.getElementById("apply-filters");
+const btnClearFilters = document.getElementById("clear-filters");
+
+// Estado del filtro de ofertas
+let filtroOfertasActivo = false;
+
+function aplicarFiltros() {
+  const categoriaSeleccionada = categoriaSelect.value;
+  const tiposSeleccionados = Array.from(checkboxesTipo)
+    .filter(chk => chk.checked)
+    .map(chk => chk.value);
+  const min = parseFloat(inputMinPrice.value) || 0;
+  const max = parseFloat(inputMaxPrice.value) || Infinity;
+
+  filteredProducts = productos.filter(p => {
+    const categoriaMatch = categoriaSeleccionada === "" || p.categoria === categoriaSeleccionada;
+    const tipoMatch = tiposSeleccionados.length === 0 || tiposSeleccionados.includes(p.tipo);
+    const precioMatch = p.price >= min && p.price <= max;
+    const ofertaMatch = filtroOfertasActivo ? p.oferta === true : true;
+    return categoriaMatch && tipoMatch && precioMatch && ofertaMatch;
+  });
+}
+
+function renderProducts(products, page = 1) {
+  productsContainer.innerHTML = "";
+  if (products.length === 0) {
+    productsContainer.innerHTML = "<p>No se encontraron productos.</p>";
+    paginationContainer.innerHTML = "";
+    return;
+  }
+
+  const start = (page - 1) * productsPerPage;
+  const end = start + productsPerPage;
+  const paginatedItems = products.slice(start, end);
+
+  paginatedItems.forEach(product => {
+    let priceHtml = `<p class="price">S/ ${product.price.toFixed(2)}</p>`;
+    if (product.oferta) {
+      const oldPrice = product.price / 0.85;
+      priceHtml = `
+        <p class="price">
+          <span style="text-decoration: line-through; color: #999;">S/ ${oldPrice.toFixed(2)}</span>
+          <span style="color: #d00000; font-weight: bold; margin-left: 8px;">S/ ${product.price.toFixed(2)}</span>
+        </p>
+      `;
+    }
+
+    const card = document.createElement("article");
+    card.classList.add("card");
+    card.innerHTML = `
+      <img src="${product.img}" alt="${product.brand} ${product.model}" />
+      <h3>${product.brand} ${product.model}</h3>
+      <p class="description">${product.description}</p>
+      ${priceHtml}
+      <button class="button btn-buy" data-id="${product.id}">Comprar</button>
+      <button class="button btn-details" data-id="${product.id}">Detalles</button>
+    `;
+    productsContainer.appendChild(card);
+  });
+
+  renderPagination(products.length, page);
+}
+
+function renderPagination(totalItems, page) {
+  paginationContainer.innerHTML = "";
+  const totalPages = Math.ceil(totalItems / productsPerPage);
+  if (totalPages <= 1) return;
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    btn.classList.toggle("active", i === page);
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      renderProducts(filteredProducts, currentPage);
+    });
+    paginationContainer.appendChild(btn);
+  }
+}
+
+// Eventos de los nuevos botones
+btnApplyFilters.addEventListener("click", () => {
+  aplicarFiltros();
+  currentPage = 1;
+  renderProducts(filteredProducts, currentPage);
+});
+
+btnClearFilters.addEventListener("click", () => {
+  categoriaSelect.value = "";
+  inputMinPrice.value = "";
+  inputMaxPrice.value = "";
+  checkboxesTipo.forEach(chk => chk.checked = false);
+  filtroOfertasActivo = false;
+  aplicarFiltros();
+  currentPage = 1;
+  renderProducts(filteredProducts, currentPage);
+});
+
+// Carga inicial
+aplicarFiltros();
+renderProducts(filteredProducts, currentPage);
+</script>
+
+</body>
+</html>

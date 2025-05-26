@@ -1,0 +1,411 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Componentes - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    .main-content {
+    max-width: 1200px;
+    margin: 2rem auto;
+    display: flex;
+    gap: 2rem;
+    padding: 0 1rem;
+  }
+  .sidebar {
+    flex: 0 0 250px;
+    background: var(--gris-claro);
+    border-radius: 10px;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: fit-content;
+    color: var(--gris-oscuro);
+  }
+  .sidebar h2 {
+    font-size: 1.5em;
+    margin-bottom: 1rem;
+    color: var(--rojo-intenso);
+  }
+  .filter-group {
+    margin-bottom: 1.5rem;
+  }
+  .filter-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: bold;
+    color: var(--gris-oscuro);
+  }
+  .filter-group input[type="checkbox"] {
+    margin-right: 8px;
+  }
+  .filter-group input[type="number"] {
+    width: 100%;
+    padding: 6px 8px;
+    margin-top: 5px;
+    box-sizing: border-box;
+    border: 1px solid var(--gris-oscuro);
+    border-radius: 5px;
+    color: var(--gris-oscuro);
+  }
+  .filter-group input[type="number"]:focus {
+    outline: none;
+    border-color: var(--rojo-intenso);
+    box-shadow: 0 0 5px var(--rojo-intenso);
+  }
+  .filter-group button {
+    background-color: var(--rojo-salmon);
+    color: var(--blanco);
+    border: none;
+    padding: 10px 15px;
+    width: 100%;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1em;
+    transition: background-color 0.3s;
+  }
+  .filter-group button:hover {
+    background-color: var(--rojo-intenso);
+  }
+  .products-container {
+    flex: 1;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+    gap: 1.5rem;
+  }
+  .card {
+    background: var(--blanco);
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    text-align: center;
+    color: var(--gris-oscuro);
+  }
+  .card img {
+    height: 150px;
+    object-fit: contain;
+    margin-bottom: 10px;
+    max-width: 100%;
+  }
+  .card h3 {
+    margin: 0.5rem 0;
+    color: var(--rojo-intenso);
+  }
+  .price {
+    color: var(--negro);
+    font-size: 1.2em;
+    margin: 10px 0;
+  }
+  .description {
+    margin: 10px 0 20px;
+    color: var(--gris-oscuro);
+    opacity: 0.7;
+  }
+  .button {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    margin: 5px 0;
+    background-color: var(--rojo-salmon);
+    color: var(--blanco);
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+  }
+  .button:hover {
+    background-color: var(--rojo-intenso);
+  }
+  .pagination {
+    max-width: 1000px;
+    margin: 2rem auto;
+    text-align: center;
+  }
+  .pagination button {
+    background-color: var(--rojo-salmon);
+    border: none;
+    color: var(--blanco);
+    padding: 8px 15px;
+    margin: 0 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: background-color 0.3s;
+  }
+  .pagination button:hover {
+    background-color: var(--rojo-intenso);
+  }
+  .pagination button.active {
+    background-color: var(--gris-oscuro);
+    cursor: default;
+    color: var(--blanco);
+  }
+  @media (max-width: 768px) {
+    .main-content {
+      flex-direction: column;
+    }
+    .sidebar {
+      width: 100%;
+      margin-bottom: 1rem;
+    }
+  }
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<div class="main-content">
+
+  <aside class="sidebar">
+    <h2>Filtrar Componentes</h2>
+
+    <div class="filter-group">
+      <label><input type="checkbox" class="filter-category" value="Procesador" /> Procesadores</label>
+      <label><input type="checkbox" class="filter-category" value="Placa Madre" /> Placas Madre</label>
+      <label><input type="checkbox" class="filter-category" value="RAM" /> Memoria RAM</label>
+      <label><input type="checkbox" class="filter-category" value="GPU" /> Tarjetas Gráficas</label>
+      <label><input type="checkbox" class="filter-category" value="Disco Duro" /> Discos Duros</label>
+      <label><input type="checkbox" class="filter-category" value="SSD" /> Unidades SSD</label>
+      <label><input type="checkbox" class="filter-category" value="Fuente" /> Fuentes de Poder</label>
+    </div>
+
+    <div class="filter-group">
+      <label for="price-min">Precio mínimo (S/)</label>
+      <input type="number" id="price-min" placeholder="0" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <label for="price-max">Precio máximo (S/)</label>
+      <input type="number" id="price-max" placeholder="5000" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <button id="apply-filters">Aplicar filtros</button>
+      <button id="clear-filters" style="margin-top:10px; background:#ddd; color:#333;">Limpiar filtros</button>
+    </div>
+  </aside>
+
+  <section class="products-container" id="products-container">
+    <!-- Aquí se cargarán los productos -->
+  </section>
+
+</div>
+
+<div class="pagination" id="pagination">
+  <!-- Botones de paginación -->
+</div>
+
+<footer>
+  <p>&copy; 2025 TechNova Perú - Todos los derechos reservados.</p>
+</footer>
+
+<script> 
+const productosComponentes = [
+  { nombre: "Intel Core i5-12400F", precio: 820, imagen: "https://via.placeholder.com/200x150", categoria: "Procesador" },
+  { nombre: "Intel Core i7-12700K", precio: 1450, imagen: "https://via.placeholder.com/200x150", categoria: "Procesador" },
+  { nombre: "AMD Ryzen 5 5600X", precio: 899, imagen: "https://via.placeholder.com/200x150", categoria: "Procesador" },
+  { nombre: "AMD Ryzen 7 5800X", precio: 1220, imagen: "https://via.placeholder.com/200x150", categoria: "Procesador" },
+
+  { nombre: "Placa Madre ASUS B550M", precio: 680, imagen: "https://via.placeholder.com/200x150", categoria: "Placa Madre" },
+  { nombre: "Placa Madre MSI B660", precio: 790, imagen: "https://via.placeholder.com/200x150", categoria: "Placa Madre" },
+  { nombre: "Placa Madre Gigabyte A520M", precio: 540, imagen: "https://via.placeholder.com/200x150", categoria: "Placa Madre" },
+
+  { nombre: "Corsair Vengeance LPX 16GB DDR4", precio: 320, imagen: "https://via.placeholder.com/200x150", categoria: "RAM" },
+  { nombre: "Kingston Fury Beast 16GB DDR5", precio: 420, imagen: "https://via.placeholder.com/200x150", categoria: "RAM" },
+  { nombre: "Crucial Ballistix 8GB DDR4", precio: 160, imagen: "https://via.placeholder.com/200x150", categoria: "RAM" },
+
+  { nombre: "NVIDIA GeForce RTX 3060 12GB", precio: 1799, imagen: "https://via.placeholder.com/200x150", categoria: "GPU" },
+  { nombre: "NVIDIA GeForce RTX 4060 8GB", precio: 2100, imagen: "https://via.placeholder.com/200x150", categoria: "GPU" },
+  { nombre: "AMD Radeon RX 6600", precio: 1650, imagen: "https://via.placeholder.com/200x150", categoria: "GPU" },
+
+  { nombre: "SSD Kingston NV2 1TB M.2", precio: 290, imagen: "https://via.placeholder.com/200x150", categoria: "SSD" },
+  { nombre: "SSD Samsung 970 EVO Plus 500GB", precio: 360, imagen: "https://via.placeholder.com/200x150", categoria: "SSD" },
+
+  { nombre: "Disco Duro Seagate Barracuda 1TB", precio: 220, imagen: "https://via.placeholder.com/200x150", categoria: "Disco Duro" },
+  { nombre: "Disco Duro Western Digital Blue 2TB", precio: 310, imagen: "https://via.placeholder.com/200x150", categoria: "Disco Duro" },
+
+  { nombre: "Fuente de Poder EVGA 600W 80+ Bronze", precio: 310, imagen: "https://via.placeholder.com/200x150", categoria: "Fuente" },
+  { nombre: "Fuente de Poder Corsair CV550 550W", precio: 280, imagen: "https://via.placeholder.com/200x150", categoria: "Fuente" },
+  { nombre: "Fuente de Poder ASUS TUF 750W 80+ Gold", precio: 530, imagen: "https://via.placeholder.com/200x150", categoria: "Fuente" }
+];
+
+const productsContainer = document.getElementById("products-container");
+const applyFiltersBtn = document.getElementById("apply-filters");
+const clearFiltersBtn = document.getElementById("clear-filters");
+const pagination = document.getElementById("pagination");
+const cartCount = document.getElementById("cart-count");
+
+const itemsPerPage = 4;
+let currentPage = 1;
+let currentFilteredProducts = productosComponentes.slice();
+
+let cart = [];
+
+function renderProducts(page = 1, filteredProducts = productosComponentes) {
+  productsContainer.innerHTML = "";
+
+  const startIndex = (page - 1) * itemsPerPage;
+  const paginatedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+
+  if (paginatedProducts.length === 0) {
+    productsContainer.innerHTML = "<p>No hay productos que coincidan con los filtros.</p>";
+    pagination.innerHTML = "";
+    return;
+  }
+
+  paginatedProducts.forEach((product, index) => {
+    const card = document.createElement("div");
+    card.className = "card";
+    card.innerHTML = `
+      <img src="${product.imagen}" alt="${product.nombre}" />
+      <h3>${product.nombre}</h3>
+      <p class="price">S/ ${product.precio.toLocaleString()}</p>
+      <button class="button" onclick="addToCart(${startIndex + index})">Agregar al carrito</button>
+      <button class="button" onclick="viewDetails(${startIndex + index})">Ver detalles</button>
+    `;
+    productsContainer.appendChild(card);
+  });
+
+  renderPagination(filteredProducts.length, page);
+}
+
+function renderPagination(totalItems, page) {
+  pagination.innerHTML = "";
+  const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+  for (let i = 1; i <= totalPages; i++) {
+    const btn = document.createElement("button");
+    btn.textContent = i;
+    if (i === page) {
+      btn.classList.add("active");
+    }
+    btn.addEventListener("click", () => {
+      currentPage = i;
+      renderProducts(currentPage, currentFilteredProducts);
+    });
+    pagination.appendChild(btn);
+  }
+}
+
+function applyFilters() {
+  // Ejemplo simple: no filtra nada (porque no hay filtros definidos en HTML)
+  currentFilteredProducts = productosComponentes.slice();
+  currentPage = 1;
+  renderProducts(currentPage, currentFilteredProducts);
+}
+
+function clearFilters() {
+  currentFilteredProducts = productosComponentes.slice();
+  currentPage = 1;
+  renderProducts(currentPage, currentFilteredProducts);
+  pagination.innerHTML = "";
+}
+
+function addToCart(productIndex) {
+  const productId = productIndex;
+  const itemIndex = cart.findIndex(item => item.productId === productId);
+  if (itemIndex > -1) {
+    cart[itemIndex].quantity += 1;
+  } else {
+    cart.push({ productId, quantity: 1 });
+  }
+  updateCartCount();
+  alert("Producto agregado al carrito.");
+}
+
+function updateCartCount() {
+  const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+  if (cartCount) {
+    cartCount.textContent = totalItems;
+  }
+}
+
+function viewDetails(productIndex) {
+  const product = productosComponentes[productIndex];
+  if (product) {
+    alert(
+      `${product.nombre}\n\n` +
+      `Precio: S/ ${product.precio.toLocaleString()}\n` +
+      `Categoría: ${product.categoria}`
+    );
+  }
+}
+
+// Listeners para botones
+applyFiltersBtn.addEventListener("click", applyFilters);
+clearFiltersBtn.addEventListener("click", clearFilters);
+
+// Inicio
+renderProducts();
+updateCartCount();
+
+window.addToCart = addToCart;
+window.viewDetails = viewDetails;
+</script>
+</body>
+</html>

@@ -1,0 +1,494 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Celulares - TechNova Perú</title>
+<link rel="stylesheet" href="style.css" />
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+<style>
+  /* Contenedor principal con sidebar y productos */
+  .main-content {
+  max-width: 1200px;
+  margin: 2rem auto;
+  display: flex;
+  gap: 2rem;
+  padding: 0 1rem;
+}
+
+/* Sidebar */
+.sidebar {
+  flex: 0 0 250px;
+  background: #F2F2F2;
+  border-radius: 10px;
+  padding: 20px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+  height: fit-content;
+}
+
+.sidebar h2 {
+  font-size: 1.5em;
+  margin-bottom: 1rem;
+  color: #2B2B2B;
+}
+
+.filter-group {
+  margin-bottom: 1.5rem;
+}
+
+.filter-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: bold;
+  color: #2B2B2B;
+}
+
+.filter-group input[type="checkbox"] {
+  margin-right: 8px;
+}
+
+.filter-group input[type="number"] {
+  width: 100%;
+  padding: 6px 8px;
+  margin-top: 5px;
+  box-sizing: border-box;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+}
+
+.filter-group button {
+  background-color: #FA6C5A;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  width: 100%;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1em;
+  transition: background-color 0.3s;
+}
+
+.filter-group button:hover {
+  background-color: #b35b55;
+}
+
+/* Contenedor productos */
+.products-container {
+  flex: 1;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+  gap: 1.5rem;
+}
+
+/* Tarjeta producto */
+.card {
+  background: #FFFFFF;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  text-align: center;
+  transition: box-shadow 0.3s;
+}
+
+.card:hover {
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.card img {
+  height: 150px;
+  object-fit: contain;
+  margin-bottom: 10px;
+  max-width: 100%;
+}
+
+.card h3 {
+  margin: 0.5rem 0;
+  color: #2B2B2B;
+}
+
+.price {
+  color: #2B2B2B;
+  font-size: 1.2em;
+  margin: 10px 0;
+}
+
+.description {
+  margin: 10px 0 20px;
+  color: #555;
+}
+
+.button {
+  display: block;
+  width: 100%;
+  padding: 10px;
+  margin: 5px 0;
+  background-color: #FA6C5A;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-size: 1em;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.button:hover {
+  background-color: #b35b55;
+}
+
+/* Paginación */
+.pagination {
+  max-width: 1000px;
+  margin: 2rem auto;
+  text-align: center;
+}
+
+.pagination button {
+  background-color: #FA6C5A;
+  border: none;
+  color: white;
+  padding: 8px 15px;
+  margin: 0 5px;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: background-color 0.3s;
+}
+
+.pagination button:hover {
+  background-color: #b35b55;
+}
+
+.pagination button.active {
+  background-color: #2B2B2B;
+  cursor: default;
+}
+
+/* Responsive: barra lateral desaparece en pantallas pequeñas */
+@media (max-width: 768px) {
+  .main-content {
+    flex-direction: column;
+  }
+
+  .sidebar {
+    width: 100%;
+    margin-bottom: 1rem;
+  }
+}
+</style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<!-- Contenedor principal con sidebar y productos -->
+<div class="main-content">
+
+  <!-- Sidebar de filtros -->
+  <aside class="sidebar">
+    <h2>Filtrar Productos</h2>
+
+    <div class="filter-group">
+      <label>Marca</label>
+      <label><input type="checkbox" class="filter-brand" value="HONOR"> HONOR</label>
+      <label><input type="checkbox" class="filter-brand" value="iPhone"> iPhone</label>
+      <label><input type="checkbox" class="filter-brand" value="NOKIA"> NOKIA</label>
+      <label><input type="checkbox" class="filter-brand" value="OPPO"> OPPO</label>
+      <label><input type="checkbox" class="filter-brand" value="POCO"> POCO</label>
+      <label><input type="checkbox" class="filter-brand" value="REDMI"> REDMI</label>
+      <label><input type="checkbox" class="filter-brand" value="Samsung Galaxy A55"> Samsung Galaxy A55</label>
+      <label><input type="checkbox" class="filter-brand" value="Galaxy Z Flip"> Galaxy Z Flip</label>
+    </div>
+
+    <div class="filter-group">
+      <label for="min-price">Precio mínimo (S/)</label>
+      <input type="number" id="min-price" min="0" placeholder="0" />
+    </div>
+
+    <div class="filter-group">
+      <label for="max-price">Precio máximo (S/)</label>
+      <input type="number" id="max-price" min="0" placeholder="5000" />
+    </div>
+
+    <div class="filter-group">
+      <button id="apply-filters">Aplicar filtros</button>
+      <button id="clear-filters" style="margin-top:10px; background-color:#ccc; color:#333;">Limpiar filtros</button>
+    </div>
+  </aside>
+
+  <!-- Productos -->
+  <div class="products-container" id="products-container">
+    <!-- Productos se insertan con JS -->
+  </div>
+
+</div>
+
+<!-- Paginación -->
+<div class="pagination" id="pagination">
+  <!-- Botones se insertan con JS -->
+</div>
+
+<script>
+  const products = [
+    {
+      id: 1,
+      name: "HONOR",
+      price: 500,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/HONOR.jpg"
+    },
+    {
+      id: 2,
+      name: "iPhone",
+      price: 4000,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/Iphone14_1.jpg"
+    },
+    {
+      id: 3,
+      name: "NOKIA",
+      price: 1000,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/NOKIA.jpg"
+    },
+    {
+      id: 4,
+      name: "OPPO",
+      price: 560,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/oppo.png"
+    },
+    {
+      id: 5,
+      name: "POCO",
+      price: 1099.99,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/POCO.jpg"
+    },
+    {
+      id: 6,
+      name: "REDMI",
+      price: 1000,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/REDMI.jpg"
+    },
+    {
+      id: 7,
+      name: "Samsung Galaxy A55",
+      price: 1050,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/samsugalxyA55.jpg"
+    },
+    {
+      id: 8,
+      name: "Galaxy Z Flip",
+      price: 1200.99,
+      description: "Próximo lanzamiento",
+      image: "./imagenes/celular/Zfilp.jpg"
+    },
+  ];
+
+  const productsPerPage = 4;
+  let currentPage = 1;
+
+  const productsContainer = document.getElementById('products-container');
+  const paginationContainer = document.getElementById('pagination');
+  const cartCountElement = document.querySelector('.cart-count');
+
+  // Manejo del carrito con localStorage
+  let cart = [];
+  try {
+    const storedCart = JSON.parse(localStorage.getItem('cart'));
+    if (Array.isArray(storedCart)) {
+      cart = storedCart;
+    }
+  } catch (e) {
+    cart = [];
+  }
+
+  function saveCart() {
+    localStorage.setItem('cart', JSON.stringify(cart));
+  }
+
+  function updateCartCount() {
+    const totalItems = cart.reduce((sum, item) => sum + item.cantidad, 0);
+    cartCountElement.textContent = totalItems;
+  }
+
+  function addToCart(product) {
+    const existing = cart.find(p => p.id === product.id);
+    if (existing) {
+      existing.cantidad++;
+    } else {
+      cart.push({ ...product, cantidad: 1 });
+    }
+    saveCart();
+    updateCartCount();
+    alert(`${product.name} agregado al carrito.`);
+  }
+
+  // Variables para filtros
+  let filteredProducts = [...products];
+
+  // Renderiza productos según página y productos filtrados
+  function renderProducts(page = 1) {
+    productsContainer.innerHTML = "";
+    const start = (page - 1) * productsPerPage;
+    const end = start + productsPerPage;
+    const paginatedItems = filteredProducts.slice(start, end);
+
+    if (paginatedItems.length === 0) {
+      productsContainer.innerHTML = "<p>No hay productos que coincidan con el filtro.</p>";
+      paginationContainer.innerHTML = "";
+      return;
+    }
+
+    paginatedItems.forEach(product => {
+      const card = document.createElement('div');
+      card.classList.add('card');
+
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.name}" />
+        <h3>${product.name}</h3>
+        <div class="price">S/ ${product.price.toFixed(2)}</div>
+        <div class="description">${product.description}</div>
+        <button class="button add-cart">Agregar al carrito</button>
+        <button class="button buy-now">Comprar</button>
+      `;
+
+      card.querySelector('.add-cart').addEventListener('click', () => {
+        addToCart(product);
+      });
+
+      card.querySelector('.buy-now').addEventListener('click', () => {
+        alert(`Has comprado: ${product.name} por S/ ${product.price.toFixed(2)}`);
+      });
+
+      productsContainer.appendChild(card);
+    });
+  }
+
+  // Renderiza la paginación para productos filtrados
+  function renderPagination() {
+    paginationContainer.innerHTML = "";
+    const totalPages = Math.ceil(filteredProducts.length / productsPerPage);
+
+    if (totalPages === 0) return;
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement('button');
+      btn.textContent = i;
+      if (i === currentPage) btn.classList.add('active');
+      btn.addEventListener('click', () => {
+        if (currentPage !== i) {
+          currentPage = i;
+          renderProducts(currentPage);
+          renderPagination();
+          window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+      });
+      paginationContainer.appendChild(btn);
+    }
+  }
+
+  // Aplicar filtros seleccionados
+  function applyFilters() {
+    const checkedBrands = Array.from(document.querySelectorAll('.filter-brand:checked')).map(cb => cb.value);
+    const minPrice = parseFloat(document.getElementById('min-price').value) || 0;
+    const maxPrice = parseFloat(document.getElementById('max-price').value) || Infinity;
+
+    filteredProducts = products.filter(p => {
+      const matchBrand = checkedBrands.length === 0 || checkedBrands.includes(p.name);
+      const matchPrice = p.price >= minPrice && p.price <= maxPrice;
+      return matchBrand && matchPrice;
+    });
+
+    currentPage = 1; // resetear a primera página
+    renderProducts(currentPage);
+    renderPagination();
+  }
+
+  // Limpiar filtros
+  function clearFilters() {
+    document.querySelectorAll('.filter-brand').forEach(cb => cb.checked = false);
+    document.getElementById('min-price').value = '';
+    document.getElementById('max-price').value = '';
+    filteredProducts = [...products];
+    currentPage = 1;
+    renderProducts(currentPage);
+    renderPagination();
+  }
+
+  document.getElementById('apply-filters').addEventListener('click', applyFilters);
+  document.getElementById('clear-filters').addEventListener('click', clearFilters);
+
+  // Inicializar
+  renderProducts(currentPage);
+  renderPagination();
+  updateCartCount();
+
+</script>
+
+</body>
+</html>

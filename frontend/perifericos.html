@@ -1,0 +1,397 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Periféricos - TechNova Perú</title>
+  <link rel="stylesheet" href="style.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
+  <style>
+    /* Igual que en el código original, para no repetir, aquí copié el CSS tal cual */
+    .main-content {
+      max-width: 1200px;
+      margin: 2rem auto;
+      display: flex;
+      gap: 2rem;
+      padding: 0 1rem;
+    }
+    .sidebar {
+      flex: 0 0 250px;
+      background: var(--gris-claro);
+      border-radius: 10px;
+      padding: 20px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+      height: fit-content;
+      color: var(--gris-oscuro);
+    }
+    .sidebar h2 {
+      font-size: 1.5em;
+      margin-bottom: 1rem;
+      color: var(--rojo-intenso);
+    }
+    .filter-group {
+      margin-bottom: 1.5rem;
+    }
+    .filter-group label {
+      display: block;
+      margin-bottom: 0.5rem;
+      font-weight: bold;
+      color: var(--gris-oscuro);
+    }
+    .filter-group input[type="checkbox"] {
+      margin-right: 8px;
+    }
+    .filter-group input[type="number"] {
+      width: 100%;
+      padding: 6px 8px;
+      margin-top: 5px;
+      box-sizing: border-box;
+      border: 1px solid var(--gris-oscuro);
+      border-radius: 5px;
+      color: var(--gris-oscuro);
+    }
+    .filter-group input[type="number"]:focus {
+      outline: none;
+      border-color: var(--rojo-intenso);
+      box-shadow: 0 0 5px var(--rojo-intenso);
+    }
+    .filter-group button {
+      background-color: var(--rojo-salmon);
+      color: var(--blanco);
+      border: none;
+      padding: 10px 15px;
+      width: 100%;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1em;
+      transition: background-color 0.3s;
+    }
+    .filter-group button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .products-container {
+      flex: 1;
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
+      gap: 1.5rem;
+    }
+    .card {
+      background: var(--blanco);
+      border-radius: 10px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      padding: 20px;
+      text-align: center;
+      color: var(--gris-oscuro);
+    }
+    .card img {
+      height: 150px;
+      object-fit: contain;
+      margin-bottom: 10px;
+      max-width: 100%;
+    }
+    .card h3 {
+      margin: 0.5rem 0;
+      color: var(--rojo-intenso);
+    }
+    .price {
+      color: var(--negro);
+      font-size: 1.2em;
+      margin: 10px 0;
+    }
+    .description {
+      margin: 10px 0 20px;
+      color: var(--gris-oscuro);
+      opacity: 0.7;
+    }
+    .button {
+      display: block;
+      width: 100%;
+      padding: 10px;
+      margin: 5px 0;
+      background-color: var(--rojo-salmon);
+      color: var(--blanco);
+      border: none;
+      border-radius: 5px;
+      font-size: 1em;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+    .button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .pagination {
+      max-width: 1000px;
+      margin: 2rem auto;
+      text-align: center;
+    }
+    .pagination button {
+      background-color: var(--rojo-salmon);
+      border: none;
+      color: var(--blanco);
+      padding: 8px 15px;
+      margin: 0 5px;
+      border-radius: 5px;
+      cursor: pointer;
+      font-size: 1rem;
+      transition: background-color 0.3s;
+    }
+    .pagination button:hover {
+      background-color: var(--rojo-intenso);
+    }
+    .pagination button.active {
+      background-color: var(--gris-oscuro);
+      cursor: default;
+      color: var(--blanco);
+    }
+    @media (max-width: 768px) {
+      .main-content {
+        flex-direction: column;
+      }
+      .sidebar {
+        width: 100%;
+        margin-bottom: 1rem;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- MENU DE NAVEGACION -->
+  <nav class="navbar">
+  <a href="index.html" class="logo">
+    <img src="Imagenes/LOGOTIPOFINAL.png" alt="Logo TechNova Perú" class="logo-img" />
+  </a>
+
+  <button class="hamburger" aria-label="Abrir menú">
+    <i class="fas fa-bars"></i>
+  </button>
+
+  <ul class="nav-menu">
+    <li><a href="index.html"><i class="fas fa-home"></i></a></li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-laptop"></i> Productos <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="laptops.html"><i class="fas fa-laptop-code"></i> Laptops</a></li>
+        <li><a href="pcdeescritorio.html"><i class="fas fa-desktop"></i> PCs de Escritorio</a></li>
+        <li><a href="componentes.html"><i class="fas fa-memory"></i> Componentes</a></li>
+        <li><a href="celulares.html"><i class="fas fa-mobile-alt"></i> Celulares</a></li>
+        <li><a href="perifericos.html"><i class="fas fa-keyboard"></i> Periféricos</a></li>
+        <li><a href="accesorios.html"><i class="fas fa-headphones"></i> Accesorios</a></li>
+        <li><a href="ofertas.html"><i class="fas fa-tags"></i> Ofertas</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-tools"></i> Servicios <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="envio.html"><i class="fas fa-truck"></i> Envíos y Entregas</a></li>
+        <li><a href="garantias.html"><i class="fas fa-shield-alt"></i> Garantías</a></li>
+        <li><a href="soporte.html"><i class="fas fa-headset"></i> Soporte Técnico</a></li>
+        <li><a href="postventa.html"><i class="fas fa-wrench"></i> Postventa</a></li>
+      </ul>
+    </li>
+
+    <li class="dropdown">
+      <a href="#" class="dropbtn">
+        <i class="fas fa-user-circle"></i> Cuenta <i class="fas fa-chevron-down"></i>
+      </a>
+      <ul class="submenu">
+        <li><a href="login.html"><i class="fas fa-sign-in-alt"></i> Iniciar Sesión</a></li>
+        <li><a href="registro.html"><i class="fas fa-user-plus"></i> Registrarse</a></li>
+        <li><a href="nosotros.html"><i class="fas fa-user"></i> ¿Quiénes Somos?</a></li>
+        <li><a href="historial.html"><i class="fas fa-history"></i> Historial de Compras</a></li>
+      </ul>
+    </li>
+
+    <li><a href="contacto.html"><i class="fas fa-envelope"></i> Contacto</a></li>
+    <li><a href="ayuda.html"><i class="fas fa-question-circle"></i> Ayuda</a></li>
+
+    <li class="cart">
+      <a href="carrito.html">
+        <i class="fas fa-shopping-cart"></i>
+        <span class="cart-count">0</span>
+      </a>
+    </li>
+  </ul>
+</nav>
+
+<main class="main-content">
+
+  <aside class="sidebar">
+    <h2>Filtros</h2>
+    <form id="filterForm">
+      <div class="filter-group">
+        <label>Tipo de Periférico:</label>
+        <label><input type="checkbox" name="tipo" value="teclado" /> Teclado</label>
+        <label><input type="checkbox" name="tipo" value="mouse" /> Mouse</label>
+        <label><input type="checkbox" name="tipo" value="monitor" /> Monitor</label>
+        <label><input type="checkbox" name="tipo" value="audifonos" /> Audífonos</label>
+        <label><input type="checkbox" name="tipo" value="webcam" /> Webcam</label>
+      </div>
+
+      <div class="filter-group">
+      <label for="price-min">Precio mínimo (S/)</label>
+      <input type="number" id="price-min" placeholder="0" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <label for="price-max">Precio máximo (S/)</label>
+      <input type="number" id="price-max" placeholder="7000" min="0" />
+    </div>
+
+    <div class="filter-group">
+      <button id="apply-filters">Aplicar filtros</button>
+      <button id="clear-filters" style="margin-top:10px; background:#ddd; color:#333;">Limpiar filtros</button>
+    </div>
+  </aside>
+
+  <section class="products-container" id="productsContainer">
+    <!-- Productos se llenarán con JS -->
+  </section>
+
+</main>
+
+<div class="pagination" id="pagination"></div>
+
+<script>
+  const perifericos = [
+    { id: 1, category: "Teclado", brand: "Logitech", model: "K380", price: 120, description: "Teclado inalámbrico Bluetooth compacto", image: "img/teclado-logitech.jpg" },
+    { id: 2, category: "Mouse", brand: "Razer", model: "DeathAdder V2", price: 240, description: "Mouse gamer de alta precisión", image: "img/mouse-razer.jpg" },
+    { id: 3, category: "Audífono", brand: "HyperX", model: "Cloud Stinger", price: 310, description: "Audífonos con micrófono para gaming", image: "img/audifono-hyperx.jpg" },
+    { id: 4, category: "Webcam", brand: "Logitech", model: "C920", price: 390, description: "Webcam Full HD con micrófono", image: "img/webcam-logitech.jpg" },
+    { id: 5, category: "Teclado", brand: "Redragon", model: "K552 Kumara", price: 180, description: "Teclado mecánico retroiluminado", image: "img/teclado-redragon.jpg" },
+    { id: 6, category: "Mouse", brand: "Logitech", model: "MX Master 3", price: 420, description: "Mouse ergonómico avanzado", image: "img/mouse-logitech.jpg" },
+    { id: 7, category: "Audífono", brand: "Corsair", model: "HS50", price: 270, description: "Audífono estéreo con micrófono desmontable", image: "img/audifono-corsair.jpg" },
+    { id: 8, category: "Webcam", brand: "Microsoft", model: "LifeCam HD-3000", price: 180, description: "Webcam HD con micrófono incorporado", image: "img/webcam-microsoft.jpg" },
+    { id: 9, category: "Teclado", brand: "Corsair", model: "K55 RGB", price: 210, description: "Teclado retroiluminado con macros programables", image: "img/teclado-corsair.jpg" },
+    { id: 10, category: "Mouse", brand: "SteelSeries", model: "Rival 3", price: 160, description: "Mouse gamer con sensor óptico de alta precisión", image: "img/mouse-steelseries.jpg" },
+    { id: 11, category: "Audífono", brand: "Logitech", model: "G433", price: 340, description: "Audífono con sonido envolvente 7.1", image: "img/audifono-logitech.jpg" },
+    { id: 12, category: "Webcam", brand: "Razer", model: "Kiyo", price: 490, description: "Webcam con anillo de luz ajustable", image: "img/webcam-razer.jpg" },
+    { id: 13, category: "Mouse", brand: "Zowie", model: "EC2", price: 310, description: "Mouse profesional para eSports", image: "img/mouse-zowie.jpg" },
+    { id: 14, category: "Teclado", brand: "SteelSeries", model: "Apex 3", price: 260, description: "Teclado resistente al agua con iluminación RGB", image: "img/teclado-steelseries.jpg" },
+    { id: 15, category: "Webcam", brand: "AverMedia", model: "PW513", price: 650, description: "Webcam 4K con gran angular", image: "img/webcam-avermedia.jpg" },
+    { id: 16, category: "Audífono", brand: "Razer", model: "Kraken X", price: 290, description: "Audífono ligero para gaming con sonido envolvente", image: "img/audifono-razer.jpg" },
+    { id: 11, category: "Audífono", brand: "Logitech", model: "G433", price: 340, description: "Audífono con sonido envolvente 7.1", image: "img/audifono-logitech.jpg" },
+    { id: 18, category: "Teclado", brand: "HP", model: "K1500", price: 90, description: "Teclado básico con diseño resistente a derrames", image: "img/teclado-hp.jpg" },
+    { id: 19, category: "Audífono", brand: "Sony", model: "MDR-ZX110", price: 100, description: "Audífono económico con buen sonido", image: "img/audifono-sony.jpg" },
+    { id: 20, category: "Webcam", brand: "Genius", model: "FaceCam 1000X", price: 120, description: "Webcam HD con clip ajustable", image: "img/webcam-genius.jpg" }
+  ];
+
+  const productsContainer = document.getElementById("productsContainer");
+  const applyFiltersBtn = document.getElementById("apply-filters");
+  const clearFiltersBtn = document.getElementById("clear-filters");
+  const pagination = document.getElementById("pagination");
+  const cartCount = document.querySelector(".cart-count");
+
+  const itemsPerPage = 8;
+  let currentPage = 1;
+  let currentFilteredProducts = perifericos.slice();
+  let cart = [];
+
+  function renderProducts(page = 1, filteredProducts = perifericos) {
+    productsContainer.innerHTML = "";
+
+    const startIndex = (page - 1) * itemsPerPage;
+    const paginatedProducts = filteredProducts.slice(startIndex, startIndex + itemsPerPage);
+
+    if (paginatedProducts.length === 0) {
+      productsContainer.innerHTML = "<p>No hay productos que coincidan con los filtros.</p>";
+      pagination.innerHTML = "";
+      return;
+    }
+
+    paginatedProducts.forEach(product => {
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <img src="${product.image}" alt="${product.brand} ${product.model}" />
+        <h3>${product.brand} ${product.model}</h3>
+        <p class="price">S/ ${product.price.toLocaleString()}</p>
+        <p class="description">${product.description}</p>
+        <button class="button" onclick="addToCart(${product.id})">Agregar al carrito</button>
+        <button class="button" onclick="viewDetails(${product.id})">Ver detalles</button>
+      `;
+      productsContainer.appendChild(card);
+    });
+
+    renderPagination(filteredProducts.length, page);
+  }
+
+  function renderPagination(totalItems, page) {
+    pagination.innerHTML = "";
+    const totalPages = Math.ceil(totalItems / itemsPerPage);
+
+    for (let i = 1; i <= totalPages; i++) {
+      const btn = document.createElement("button");
+      btn.textContent = i;
+      if (i === page) btn.classList.add("active");
+      btn.addEventListener("click", () => {
+        currentPage = i;
+        renderProducts(currentPage, currentFilteredProducts);
+      });
+      pagination.appendChild(btn);
+    }
+  }
+
+  function applyFilters() {
+    const checkedCategories = Array.from(document.querySelectorAll('input[name="tipo"]:checked')).map(input => input.value.toLowerCase());
+    const minPrice = parseFloat(document.getElementById("price-min").value) || 0;
+    const maxPrice = parseFloat(document.getElementById("price-max").value) || Infinity;
+
+    currentFilteredProducts = perifericos.filter(product => {
+      const categoryMatch = checkedCategories.length === 0 || checkedCategories.includes(product.category.toLowerCase());
+      const priceMatch = product.price >= minPrice && product.price <= maxPrice;
+      return categoryMatch && priceMatch;
+    });
+
+    currentPage = 1;
+    renderProducts(currentPage, currentFilteredProducts);
+  }
+
+  function clearFilters() {
+    document.querySelectorAll('input[name="tipo"]').forEach(input => input.checked = false);
+    document.getElementById("price-min").value = "";
+    document.getElementById("price-max").value = "";
+    currentFilteredProducts = perifericos.slice();
+    currentPage = 1;
+    renderProducts();
+  }
+
+  function addToCart(productId) {
+    cart.push(productId);
+    updateCartCount();
+    alert("Producto agregado al carrito");
+  }
+
+  function updateCartCount() {
+    cartCount.textContent = cart.length;
+  }
+
+  function viewDetails(productId) {
+    const product = perifericos.find(p => p.id === productId);
+    if (product) {
+      alert(`Detalles de ${product.brand} ${product.model}:\n\n${product.description}\n\nPrecio: S/ ${product.price}`);
+    }
+  }
+
+  applyFiltersBtn.addEventListener("click", e => {
+    e.preventDefault();
+    applyFilters();
+  });
+
+  clearFiltersBtn.addEventListener("click", e => {
+    e.preventDefault();
+    clearFilters();
+  });
+
+  // Renderizar productos inicialmente
+  renderProducts();
+</script>
+
+</body>
+</html>
